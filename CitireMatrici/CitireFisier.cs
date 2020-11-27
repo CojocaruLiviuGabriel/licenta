@@ -45,7 +45,7 @@ namespace CitireMatrici
             {
                 string[] lineSplit = lines[indexLine].Split(' ');
 
-                for (var indexLineSplit = 0; indexLineSplit < lineSplit.Length; indexLineSplit++)
+                for (var indexLineSplit = 0; indexLineSplit < lineSplit.Length - 1; indexLineSplit++)
                 {
                     string[] valueSplit = lineSplit[indexLineSplit].Split(':');
                     int key = Convert.ToInt32(valueSplit[0]);
