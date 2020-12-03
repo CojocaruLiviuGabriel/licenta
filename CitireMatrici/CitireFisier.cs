@@ -25,7 +25,11 @@ namespace CitireMatrici
 
             while( (linieDinFisier = streamReader.ReadLine() ) != null)
             {
-                if (linieDinFisier.StartsWith("0"))
+                if ((linieDinFisier.StartsWith("@")) || (linieDinFisier.StartsWith("#")) || (linieDinFisier == ""))
+                {
+                    //Nu fa nimic, nu imi introdu in lista de string
+                }
+                else
                 {
                     int index = linieDinFisier.IndexOf("#");
                     string aux = linieDinFisier.Substring(0, index);
