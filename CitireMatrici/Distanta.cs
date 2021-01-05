@@ -22,5 +22,19 @@ namespace CitireMatrici
         {
             return x1;
         }
+
+        public double MinkowskiDistance(int order, Int16[] firstPoint, Int16[] secondPoint)
+        {
+            double sum = 0;
+            int dimension = firstPoint.Length;
+            for (var i = 0; i < dimension; i++)
+            {
+
+                sum += Math.Pow(Math.Abs(firstPoint[i] - secondPoint[i]), order); ;
+            }
+
+            return Math.Pow(sum, (double)1 / order);
+        }
+
     }
 }
