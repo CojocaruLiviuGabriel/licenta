@@ -30,7 +30,9 @@
         {
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnReadFile = new System.Windows.Forms.Button();
+            this.btnReadFileTraining = new System.Windows.Forms.Button();
+            this.btnReadFileTest = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoad
@@ -45,7 +47,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(12, 90);
+            this.btnExit.Location = new System.Drawing.Point(12, 154);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 1;
@@ -53,22 +55,44 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnReadFile
+            // btnReadFileTraining
             // 
-            this.btnReadFile.Location = new System.Drawing.Point(12, 61);
-            this.btnReadFile.Name = "btnReadFile";
-            this.btnReadFile.Size = new System.Drawing.Size(75, 23);
-            this.btnReadFile.TabIndex = 2;
-            this.btnReadFile.Text = "ReadFile";
-            this.btnReadFile.UseVisualStyleBackColor = true;
-            this.btnReadFile.Click += new System.EventHandler(this.btnReadFile_Click);
+            this.btnReadFileTraining.Location = new System.Drawing.Point(12, 61);
+            this.btnReadFileTraining.Name = "btnReadFileTraining";
+            this.btnReadFileTraining.Size = new System.Drawing.Size(112, 23);
+            this.btnReadFileTraining.TabIndex = 2;
+            this.btnReadFileTraining.Text = "ReadFileTraining";
+            this.btnReadFileTraining.UseVisualStyleBackColor = true;
+            this.btnReadFileTraining.Click += new System.EventHandler(this.btnReadFile_Click);
+            // 
+            // btnReadFileTest
+            // 
+            this.btnReadFileTest.Location = new System.Drawing.Point(12, 90);
+            this.btnReadFileTest.Name = "btnReadFileTest";
+            this.btnReadFileTest.Size = new System.Drawing.Size(112, 23);
+            this.btnReadFileTest.TabIndex = 3;
+            this.btnReadFileTest.Text = "ReadFile Test";
+            this.btnReadFileTest.UseVisualStyleBackColor = true;
+            this.btnReadFileTest.Click += new System.EventHandler(this.btnReadFileTest_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(12, 119);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 450);
-            this.Controls.Add(this.btnReadFile);
+            this.ClientSize = new System.Drawing.Size(323, 450);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnReadFileTest);
+            this.Controls.Add(this.btnReadFileTraining);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLoad);
             this.Name = "Form1";
@@ -81,7 +105,9 @@
 
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnReadFile;
+        private System.Windows.Forms.Button btnReadFileTraining;
+        private System.Windows.Forms.Button btnReadFileTest;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 

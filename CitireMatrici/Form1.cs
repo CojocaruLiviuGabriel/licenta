@@ -13,8 +13,10 @@ namespace CitireMatrici
     public partial class Form1 : Form
     {
         CitireFisier citire = new CitireFisier();
+        Normalizare normalizare = new Normalizare();
         string caleFisierArff;
-        Int16[,] dateFisier;
+        Int16[,] dateFisierTest;
+        Int16[,] dateFisierTraining;
 
 
         public Form1()
@@ -43,7 +45,18 @@ namespace CitireMatrici
 
         private void btnReadFile_Click(object sender, EventArgs e)
         {
-            citire.CitesteFisierArff(out dateFisier, caleFisierArff);
+            citire.CitesteFisierArff(out dateFisierTraining, caleFisierArff);
+        }
+
+        private void btnReadFileTest_Click(object sender, EventArgs e)
+        {
+            citire.CitesteFisierArff(out dateFisierTest, caleFisierArff);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            normalizare.NormalizareBinara(dateFisierTraining);
+            normalizare.NormalizareBinara(dateFisierTest);
         }
     }
 }
