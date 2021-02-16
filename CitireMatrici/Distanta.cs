@@ -8,14 +8,36 @@ namespace CitireMatrici
 {
     class Distanta
     {
-        public double DistantaEuclidiana(double x1, double y1, double x2, double y2)
+        public double DistantaEuclidiana(double[,] matrice1, double[,] matrice2)
         {
-            return Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
+
+            double distanta = 0;
+
+            for (int i = 0; i < matrice1.Length; i++)
+            {
+                for (int j = 0; j < matrice1.Length; j++)
+                {
+                    distanta += Math.Pow(matrice1[i, j] - matrice2[i, j],2);
+                }
+            }
+
+            distanta = Math.Sqrt(distanta);
+            return distanta;
         }
 
-        public double DistantaManhattan(double x1, double y1, double x2, double y2)
+        public double DistantaManhattan(double[,] matrice1, double[,] matrice2)
         {
-            return Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
+            double distanta = 0;
+
+            for(int i = 0; i < matrice1.Length; i++)
+            {
+                for (int j = 0; j < matrice1.Length; j++)
+                {
+                    distanta += Math.Abs(matrice1[i, j] - matrice2[i, j]);
+                }
+            }
+
+            return distanta;
         }
 
         public double DistantaCosinus(double x1, double y1, double x2, double y2)
@@ -24,17 +46,21 @@ namespace CitireMatrici
             return x1;
         }
 
-        public double MinkowskiDistance(int order, Int16[] firstPoint, Int16[] secondPoint)
+        public double DistantaMinkowski(double[,] matrice1, double[,] matrice2,int order)
         {
-            double sum = 0;
-            int dimension = firstPoint.Length;
-            for (var i = 0; i < dimension; i++)
-            {
 
-                sum += Math.Pow(Math.Abs(firstPoint[i] - secondPoint[i]), order); ;
+            double distanta = 0;
+
+            for (int i = 0; i < matrice1.Length; i++)
+            {
+                for (int j = 0; j < matrice1.Length; j++)
+                {
+                    distanta += Math.Pow(Math.Abs(matrice1[i, j] - matrice2[i, j]),order);
+                }
             }
 
-            return Math.Pow(sum, (double)1 / order);
+
+            return Math.Pow(distanta, (double)1 / order);
         }
 
     }
