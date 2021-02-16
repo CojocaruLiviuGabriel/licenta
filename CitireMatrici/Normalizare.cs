@@ -13,18 +13,23 @@ namespace CitireMatrici
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
+            List<List<int>> valori = new List<List<int>>();
+
 
             for (int i = 0; i < rows; i++)
             {
+                valori.Add(new List<int>());
                 for (int j = 0; j < cols; j++)
                 {
                     if (matrix[i, j] > 0)
                     {
                         matrix[i, j] = 1;
+                        valori[i].Add(matrix[i, j]);
                     }
                     else
                     {
                         matrix[i, j] = 0;
+                        valori[i].Add(matrix[i, j]);
                     }
                 }
             }
