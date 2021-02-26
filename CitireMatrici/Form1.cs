@@ -15,6 +15,7 @@ namespace CitireMatrici
         CitireFisier citire = new CitireFisier();
         Normalizare normalizare = new Normalizare();
         string caleFisierArff;
+        List<string> claseTest, claseTraining;
         Int16[,] dateFisierTest;
         Int16[,] dateFisierTraining;
 
@@ -46,17 +47,24 @@ namespace CitireMatrici
         private void btnReadFile_Click(object sender, EventArgs e)
         {
             citire.CitesteFisierArff(out dateFisierTraining, caleFisierArff);
+            claseTraining = citire.ClaseDinFisier(caleFisierArff);
         }
 
         private void btnReadFileTest_Click(object sender, EventArgs e)
         {
             citire.CitesteFisierArff(out dateFisierTest, caleFisierArff);
+            claseTest = citire.ClaseDinFisier(caleFisierArff);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             normalizare.NormalizareBinara(dateFisierTraining);
             normalizare.NormalizareBinara(dateFisierTest);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            citire.ClaseDinFisier(caleFisierArff);
         }
     }
 }

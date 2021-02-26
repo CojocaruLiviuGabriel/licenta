@@ -5,7 +5,7 @@ using System.IO;
 namespace CitireMatrici
 {
     class CitireFisier
-    {   
+    {
 
         public void CitesteFisierArff(out Int16[,] Matrice, string caleFisier)
         {
@@ -17,13 +17,13 @@ namespace CitireMatrici
 
             string[] linii = streamReader.ReadLine().Split(' ');
             numarLinii = Convert.ToUInt32(linii[1]);
-            
+
             string[] coloane = streamReader.ReadLine().Split(' ');
             numarColoane = Convert.ToUInt32(coloane[1]);
 
             string linieDinFisier;
 
-            while( (linieDinFisier = streamReader.ReadLine() ) != null)
+            while ((linieDinFisier = streamReader.ReadLine()) != null)
             {
                 if ((linieDinFisier.StartsWith("@")) || (linieDinFisier.StartsWith("#")) || (linieDinFisier == ""))
                 {
@@ -62,6 +62,26 @@ namespace CitireMatrici
             return matrix;
         }
 
-        
+        public List<string> ClaseDinFisier(string caleFisier)
+        {
+            List<string> temp = new List<string>();
+            StreamReader streamReader = new StreamReader(caleFisier);
+
+            string linieDinFisier;
+
+            while ((linieDinFisier = streamReader.ReadLine()) != null)
+            {
+                if (!linieDinFisier.StartsWith("@") && !linieDinFisier.StartsWith("#") && linieDinFisier.Contains("c"))
+                {
+                    int index = linieDinFisier.IndexOf("#");
+                    string[] aux = linieDinFisier.Substring(index + 1).Split();
+                    temp.Add(aux[1]);
+                }
+            }
+
+            return temp;
+        }
+
+
     }
 }
