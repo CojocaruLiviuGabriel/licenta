@@ -74,7 +74,7 @@ namespace CitireMatrici
                 {
                     for(int iAnt = 0; iAnt < coloanaAntrenament; iAnt++) 
                     {
-                        dist += obj.DistantaEuclidiana(dateFisierTest[i, j], dateFisierTraining[i, iAnt]);
+                       // dist += obj.DistantaEuclidiana(dateFisierTest[i, j], dateFisierTraining[i, iAnt]);
                     }
                 }
             }
