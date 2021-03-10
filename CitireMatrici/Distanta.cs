@@ -8,28 +8,60 @@ namespace CitireMatrici
 {
     class Distanta
     {
-        public double DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
+        public List<double> DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
         {
+            List<List<int>> ElementeTest = new List<List<int>>();
+            List<List<int>> ElementeTraining = new List<List<int>>();
+            List<double> distante = new List<double>();
+            double distanta;
 
-            double distanta = 0;
-
-            for (int i = 0; i < matrice1.Length; i++)
+            for (var i = 0; i < matrice1.GetLength(0); i++)
             {
-                for (int j = 0; j < matrice1.Length; j++)
+                ElementeTest.Add(new List<int>());
+                for (var j = 0; j < matrice1.GetLength(1); j++)
                 {
-                    distanta += Math.Pow(matrice1[i, j] - matrice2[i, j],2);
+                    ElementeTest[i].Add(matrice1[i, j]);
                 }
             }
 
-            distanta = Math.Sqrt(distanta);
-            return distanta;
+            for (var i = 0; i < matrice2.GetLength(0); i++)
+            {
+                ElementeTraining.Add(new List<int>());
+                for (var j = 0; j < matrice2.GetLength(1); j++)
+                {
+                    ElementeTraining[i].Add(matrice2[i, j]);
+                }
+            }
+
+            for (var k = 0; k < ElementeTest.Count; k++)
+            {
+                distanta = 0;
+                for (var i = 0; i < ElementeTraining.Count; i++)
+                {
+                    
+
+                    for (var j = 0; j < ElementeTraining[i].Count; j++)
+                    {
+                        distanta += Math.Pow(ElementeTest[k][j] - ElementeTraining[i][j],2);
+                    }
+
+                   
+
+                }
+                distanta = Math.Sqrt(distanta);
+                distante.Add(distanta);
+            }
+
+
+
+            return distante;
         }
 
         public double DistantaManhattan(int[,] matrice1, int[,] matrice2)
         {
             double distanta = 0;
 
-            for(int i = 0; i < matrice1.Length; i++)
+            for (int i = 0; i < matrice1.Length; i++)
             {
                 for (int j = 0; j < matrice1.Length; j++)
                 {
@@ -46,7 +78,7 @@ namespace CitireMatrici
             return x1;
         }
 
-        public double DistantaMinkowski(int[,] matrice1, int[,] matrice2,int order)
+        public double DistantaMinkowski(int[,] matrice1, int[,] matrice2, int order)
         {
 
             double distanta = 0;
@@ -55,7 +87,7 @@ namespace CitireMatrici
             {
                 for (int j = 0; j < matrice1.Length; j++)
                 {
-                    distanta += Math.Pow(Math.Abs(matrice1[i, j] - matrice2[i, j]),order);
+                    distanta += Math.Pow(Math.Abs(matrice1[i, j] - matrice2[i, j]), order);
                 }
             }
 

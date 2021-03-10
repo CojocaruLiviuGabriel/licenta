@@ -7,7 +7,7 @@ namespace CitireMatrici
     class CitireFisier
     {
 
-        public void CitesteFisierArff(out Int16[,] Matrice, string caleFisier)
+        public void CitesteFisierArff(out int[,] Matrice, string caleFisier)
         {
             List<string> s = new List<string>();
             uint numarLinii = 0;
@@ -40,9 +40,9 @@ namespace CitireMatrici
             Matrice = CreateMatrix(s, numarLinii, numarColoane);
         }
 
-        public Int16[,] CreateMatrix(List<string> lines, uint numberOfLines, uint numberOfColumns)
+        public int[,] CreateMatrix(List<string> lines, uint numberOfLines, uint numberOfColumns)
         {
-            Int16[,] matrix = new Int16[numberOfLines, numberOfColumns];
+            int[,] matrix = new int[numberOfLines, numberOfColumns];
 
 
             for (var indexLine = 0; indexLine < lines.Count; indexLine++)

@@ -9,7 +9,7 @@ namespace CitireMatrici
     class Normalizare
     {
 
-        public void NormalizareBinara(Int16[,] matrix)
+        public void NormalizareBinara(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
@@ -17,24 +17,21 @@ namespace CitireMatrici
 
             for (int i = 0; i < rows; i++)
             {
-                valori.Add(new List<int>());
                 for (int j = 0; j < cols; j++)
                 {
                     if (matrix[i, j] > 0)
                     {
                         matrix[i, j] = 1;
-                        valori[i].Add(matrix[i, j]);
                     }
                     else
                     {
                         matrix[i, j] = 0;
-                        valori[i].Add(matrix[i, j]);
                     }
                 }
             }
         }
 
-        public void NormalizareConrnellSmart(Int16[,] matrix)
+        public void NormalizareConrnellSmart(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
@@ -56,7 +53,7 @@ namespace CitireMatrici
             }
         }
 
-        public void NormalizareNominala(Int16[,] matrix)
+        public void NormalizareNominala(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
@@ -90,7 +87,7 @@ namespace CitireMatrici
 
         }
 
-        public void NormalizareSuma1(Int16[,] matrix)
+        public void NormalizareSuma1(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
