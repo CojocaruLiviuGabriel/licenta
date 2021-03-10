@@ -8,7 +8,7 @@ namespace CitireMatrici
 {
     class Distanta
     {
-        public double DistantaEuclidiana(double[,] matrice1, double[,] matrice2)
+        public double DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
         {
 
             double distanta = 0;
@@ -25,7 +25,7 @@ namespace CitireMatrici
             return distanta;
         }
 
-        public double DistantaManhattan(double[,] matrice1, double[,] matrice2)
+        public double DistantaManhattan(int[,] matrice1, int[,] matrice2)
         {
             double distanta = 0;
 
@@ -40,13 +40,13 @@ namespace CitireMatrici
             return distanta;
         }
 
-        public double DistantaCosinus(double x1, double y1, double x2, double y2)
+        public double DistantaCosinus(int x1, int y1, int x2, int y2)
         {
             // de facut
             return x1;
         }
 
-        public double DistantaMinkowski(double[,] matrice1, double[,] matrice2,int order)
+        public double DistantaMinkowski(int[,] matrice1, int[,] matrice2,int order)
         {
 
             double distanta = 0;

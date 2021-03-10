@@ -60,6 +60,25 @@ namespace CitireMatrici
         {
             normalizare.NormalizareBinara(dateFisierTraining);
             normalizare.NormalizareBinara(dateFisierTest);
+
+            int randTestare = dateFisierTest.GetLength(0);
+            int coloanaTestare = dateFisierTest.GetLength(1);
+            int randAntrenament = dateFisierTraining.GetLength(0);
+            int coloanaAntrenament = dateFisierTraining.GetLength(1);
+            Distanta obj = new Distanta();
+            double dist = 0;
+
+            for(int i = 0; i < randTestare; i++)
+            {
+                for(int j = 0; j < coloanaTestare; j++)
+                {
+                    for(int iAnt = 0; iAnt < coloanaAntrenament; iAnt++) 
+                    {
+                        dist += obj.DistantaEuclidiana(dateFisierTest[i, j], dateFisierTraining[i, iAnt]);
+                    }
+                }
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

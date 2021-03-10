@@ -13,7 +13,6 @@ namespace CitireMatrici
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            List<List<int>> valori = new List<List<int>>();
 
 
             for (int i = 0; i < rows; i++)
