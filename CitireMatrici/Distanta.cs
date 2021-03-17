@@ -8,11 +8,11 @@ namespace CitireMatrici
 {
     class Distanta
     {
-        public List<double> DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
+        public List<List<double>> DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
         {
             List<List<int>> ElementeTest = new List<List<int>>();
             List<List<int>> ElementeTraining = new List<List<int>>();
-            List<double> distante = new List<double>();
+            List<List<double>> distante = new List<List<double>>();
             double distanta;
 
             for (var i = 0; i < matrice1.GetLength(0); i++)
@@ -35,18 +35,19 @@ namespace CitireMatrici
 
             for (var k = 0; k < ElementeTest.Count; k++)
             {
-                distanta = 0;
+                distante.Add(new List<double>());
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
 
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
+                        distanta = 0;
                         distanta += Math.Pow(ElementeTest[k][j] - ElementeTraining[i][j], 2);
+                        distanta = Math.Sqrt(distanta);
+                        distante[k].Add(distanta);
                     }
 
                 }
-                distanta = Math.Sqrt(distanta);
-                distante.Add(distanta);
             }
 
 
