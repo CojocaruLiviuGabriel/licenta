@@ -36,17 +36,18 @@ namespace CitireMatrici
             for (var k = 0; k < ElementeTest.Count; k++)
             {
                 distante.Add(new List<double>());
+                distanta = 0;
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
 
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
-                        distanta = 0;
+                        
                         distanta += Math.Pow(ElementeTest[k][j] - ElementeTraining[i][j], 2);
                         distanta = Math.Sqrt(distanta);
-                        distante[k].Add(distanta);
+                        
                     }
-
+                    distante[k].Add(distanta);
                 }
             }
 
@@ -55,11 +56,11 @@ namespace CitireMatrici
             return distante;
         }
 
-        public List<double> DistantaManhattan(int[,] matrice1, int[,] matrice2)
+        public List<List<double>> DistantaManhattan(int[,] matrice1, int[,] matrice2)
         {
             List<List<int>> ElementeTest = new List<List<int>>();
             List<List<int>> ElementeTraining = new List<List<int>>();
-            List<double> distante = new List<double>();
+            List<List<double>> distante = new List<List<double>>();
             double distanta;
 
             for (var i = 0; i < matrice1.GetLength(0); i++)
@@ -82,6 +83,7 @@ namespace CitireMatrici
 
             for (var k = 0; k < ElementeTest.Count; k++)
             {
+                distante.Add(new List<double>());
                 distanta = 0;
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
@@ -90,9 +92,9 @@ namespace CitireMatrici
                     {
                         distanta += Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]);
                     }
-
+                    distante[k].Add(distanta);
                 }
-                distante.Add(distanta);
+               
             }
 
             return distante;
@@ -104,11 +106,11 @@ namespace CitireMatrici
             return x1;
         }
 
-        public List<double> DistantaMinkowski(int[,] matrice1, int[,] matrice2, int order)
+        public List<List<double>> DistantaMinkowski(int[,] matrice1, int[,] matrice2, int order)
         {
             List<List<int>> ElementeTest = new List<List<int>>();
             List<List<int>> ElementeTraining = new List<List<int>>();
-            List<double> distante = new List<double>();
+            List<List<double>> distante = new List<List<double>>();
             double distanta;
 
             for (var i = 0; i < matrice1.GetLength(0); i++)
@@ -132,6 +134,7 @@ namespace CitireMatrici
 
             for (var k = 0; k < ElementeTest.Count; k++)
             {
+                distante.Add(new List<double>());
                 distanta = 0;
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
@@ -139,11 +142,12 @@ namespace CitireMatrici
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
                         distanta += Math.Pow(Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]), order);
+                        distanta = Math.Pow(distanta, (double)1.0 / order);
                     }
-
+                    distante[k].Add(distanta);
                 }
-                distanta = Math.Pow(distanta, (double)1.0 / order);
-                distante.Add(distanta);
+                
+                
             }
 
             return distante;

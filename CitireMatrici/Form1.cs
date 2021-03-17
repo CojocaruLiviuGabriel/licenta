@@ -61,7 +61,7 @@ namespace CitireMatrici
             Distanta distanta = new Distanta();
             normalizare.NormalizareBinara(dateFisierTest);
             normalizare.NormalizareBinara(dateFisierTraining);
-            distanta.DistantaEuclidiana(dateFisierTest, dateFisierTraining);
+            distanta.DistantaManhattan(dateFisierTest, dateFisierTraining);
 
         }
 
