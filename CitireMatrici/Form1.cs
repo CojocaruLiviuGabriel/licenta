@@ -14,6 +14,7 @@ namespace CitireMatrici
     {
         CitireFisier citire = new CitireFisier();
         Normalizare normalizare = new Normalizare();
+        Distanta distanta = new Distanta();
         string caleFisierArff;
         List<string> claseTest, claseTraining;
         int[,] dateFisierTest;
@@ -58,11 +59,58 @@ namespace CitireMatrici
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Distanta distanta = new Distanta();
-            normalizare.NormalizareBinara(dateFisierTest);
-            normalizare.NormalizareBinara(dateFisierTraining);
-            distanta.DistantaEuclidiana(dateFisierTest, dateFisierTraining);
+            
+          
+            
 
+        }
+
+        private void lrLfBtn_Click(object sender, EventArgs e)
+        {
+            citire.CitesteFisierArff(out dateFisierTest, "../../InputDataArff/MultiClass_Testing_SVM_1309.0.arff");
+            citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
+            claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_1309.0.arff");
+            claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
+        }
+
+        private void btnCalculNormalizare_Click(object sender, EventArgs e)
+        {
+            if (rbNormB.Checked)
+            {
+                normalizare.NormalizareBinara(dateFisierTest);
+                normalizare.NormalizareBinara(dateFisierTraining);
+            }
+            if (rbNormCS.Checked)
+            {
+                normalizare.NormalizareConrnellSmart(dateFisierTest);
+                normalizare.NormalizareConrnellSmart(dateFisierTraining);
+            }
+            if (rbNormNom.Checked)
+            {
+                normalizare.NormalizareNominala(dateFisierTest);
+                normalizare.NormalizareNominala(dateFisierTraining);
+            }
+            if (rbNormSum1.Checked)
+            {
+                normalizare.NormalizareSuma1(dateFisierTest);
+                normalizare.NormalizareSuma1(dateFisierTraining);
+            }
+        }
+
+        private void btnCalcDistante_Click(object sender, EventArgs e)
+        {
+            if (rbDistE.Checked)
+            {
+                distanta.DistantaEuclidiana(dateFisierTest, dateFisierTraining);
+            }
+            if (rbDisMan.Checked)
+            {
+                distanta.DistantaManhattan(dateFisierTest, dateFisierTraining);
+            }
+            if (rbDisMin.Checked)
+            {
+                distanta.DistantaMinkowski(dateFisierTest, dateFisierTraining,Convert.ToInt32(nUdMinkOrder.Value));
+            }
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)
@@ -73,9 +121,6 @@ namespace CitireMatrici
             claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            citire.ClaseDinFisier(caleFisierArff);
-        }
+
     }
 }

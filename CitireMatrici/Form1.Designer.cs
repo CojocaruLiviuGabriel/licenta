@@ -33,13 +33,30 @@
             this.btnReadFileTraining = new System.Windows.Forms.Button();
             this.btnReadFileTest = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lrSfBtn = new System.Windows.Forms.Button();
+            this.rbDistE = new System.Windows.Forms.RadioButton();
+            this.rbDisMan = new System.Windows.Forms.RadioButton();
+            this.rbDisMin = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lrLfBtn = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbNormNom = new System.Windows.Forms.RadioButton();
+            this.rbNormCS = new System.Windows.Forms.RadioButton();
+            this.rbNormB = new System.Windows.Forms.RadioButton();
+            this.rbNormSum1 = new System.Windows.Forms.RadioButton();
+            this.btnCalculNormalizare = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnCalcDistante = new System.Windows.Forms.Button();
+            this.nUdMinkOrder = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUdMinkOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(12, 32);
+            this.btnLoad.Location = new System.Drawing.Point(374, 90);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 0;
@@ -49,9 +66,9 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(12, 154);
+            this.btnExit.Location = new System.Drawing.Point(448, 401);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(123, 37);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -59,7 +76,7 @@
             // 
             // btnReadFileTraining
             // 
-            this.btnReadFileTraining.Location = new System.Drawing.Point(12, 61);
+            this.btnReadFileTraining.Location = new System.Drawing.Point(374, 119);
             this.btnReadFileTraining.Name = "btnReadFileTraining";
             this.btnReadFileTraining.Size = new System.Drawing.Size(112, 23);
             this.btnReadFileTraining.TabIndex = 2;
@@ -69,7 +86,7 @@
             // 
             // btnReadFileTest
             // 
-            this.btnReadFileTest.Location = new System.Drawing.Point(12, 90);
+            this.btnReadFileTest.Location = new System.Drawing.Point(374, 148);
             this.btnReadFileTest.Name = "btnReadFileTest";
             this.btnReadFileTest.Size = new System.Drawing.Size(112, 23);
             this.btnReadFileTest.TabIndex = 3;
@@ -79,7 +96,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(12, 119);
+            this.btnStart.Location = new System.Drawing.Point(374, 177);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 4;
@@ -87,19 +104,9 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(58, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lrSfBtn
             // 
-            this.lrSfBtn.Location = new System.Drawing.Point(328, 61);
+            this.lrSfBtn.Location = new System.Drawing.Point(6, 19);
             this.lrSfBtn.Name = "lrSfBtn";
             this.lrSfBtn.Size = new System.Drawing.Size(187, 23);
             this.lrSfBtn.TabIndex = 6;
@@ -107,13 +114,167 @@
             this.lrSfBtn.UseVisualStyleBackColor = true;
             this.lrSfBtn.Click += new System.EventHandler(this.lrSfBtn_Click);
             // 
+            // rbDistE
+            // 
+            this.rbDistE.AutoSize = true;
+            this.rbDistE.Location = new System.Drawing.Point(6, 19);
+            this.rbDistE.Name = "rbDistE";
+            this.rbDistE.Size = new System.Drawing.Size(116, 17);
+            this.rbDistE.TabIndex = 7;
+            this.rbDistE.TabStop = true;
+            this.rbDistE.Text = "Distanta Euclidiana";
+            this.rbDistE.UseVisualStyleBackColor = true;
+            // 
+            // rbDisMan
+            // 
+            this.rbDisMan.AutoSize = true;
+            this.rbDisMan.Location = new System.Drawing.Point(6, 42);
+            this.rbDisMan.Name = "rbDisMan";
+            this.rbDisMan.Size = new System.Drawing.Size(118, 17);
+            this.rbDisMan.TabIndex = 8;
+            this.rbDisMan.TabStop = true;
+            this.rbDisMan.Text = "Distanta Manhattan";
+            this.rbDisMan.UseVisualStyleBackColor = true;
+            // 
+            // rbDisMin
+            // 
+            this.rbDisMin.AutoSize = true;
+            this.rbDisMin.Location = new System.Drawing.Point(6, 65);
+            this.rbDisMin.Name = "rbDisMin";
+            this.rbDisMin.Size = new System.Drawing.Size(117, 17);
+            this.rbDisMin.TabIndex = 9;
+            this.rbDisMin.TabStop = true;
+            this.rbDisMin.Text = "Distanta Minkowski";
+            this.rbDisMin.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lrLfBtn);
+            this.groupBox1.Controls.Add(this.lrSfBtn);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(284, 100);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Load Files";
+            // 
+            // lrLfBtn
+            // 
+            this.lrLfBtn.Location = new System.Drawing.Point(6, 48);
+            this.lrLfBtn.Name = "lrLfBtn";
+            this.lrLfBtn.Size = new System.Drawing.Size(187, 23);
+            this.lrLfBtn.TabIndex = 7;
+            this.lrLfBtn.Text = "Load and Read Large Files";
+            this.lrLfBtn.UseVisualStyleBackColor = true;
+            this.lrLfBtn.Click += new System.EventHandler(this.lrLfBtn_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnCalculNormalizare);
+            this.groupBox2.Controls.Add(this.rbNormSum1);
+            this.groupBox2.Controls.Add(this.rbNormNom);
+            this.groupBox2.Controls.Add(this.rbNormB);
+            this.groupBox2.Controls.Add(this.rbNormCS);
+            this.groupBox2.Location = new System.Drawing.Point(13, 131);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(204, 153);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Normalizari";
+            // 
+            // rbNormNom
+            // 
+            this.rbNormNom.AutoSize = true;
+            this.rbNormNom.Location = new System.Drawing.Point(6, 65);
+            this.rbNormNom.Name = "rbNormNom";
+            this.rbNormNom.Size = new System.Drawing.Size(127, 17);
+            this.rbNormNom.TabIndex = 14;
+            this.rbNormNom.TabStop = true;
+            this.rbNormNom.Text = "Normalizare Nominala";
+            this.rbNormNom.UseVisualStyleBackColor = true;
+            // 
+            // rbNormCS
+            // 
+            this.rbNormCS.AutoSize = true;
+            this.rbNormCS.Location = new System.Drawing.Point(6, 42);
+            this.rbNormCS.Name = "rbNormCS";
+            this.rbNormCS.Size = new System.Drawing.Size(148, 17);
+            this.rbNormCS.TabIndex = 13;
+            this.rbNormCS.TabStop = true;
+            this.rbNormCS.Text = "Normalizare ConrnellSmart";
+            this.rbNormCS.UseVisualStyleBackColor = true;
+            // 
+            // rbNormB
+            // 
+            this.rbNormB.AutoSize = true;
+            this.rbNormB.Location = new System.Drawing.Point(6, 19);
+            this.rbNormB.Name = "rbNormB";
+            this.rbNormB.Size = new System.Drawing.Size(113, 17);
+            this.rbNormB.TabIndex = 12;
+            this.rbNormB.TabStop = true;
+            this.rbNormB.Text = "Normalizare Binara";
+            this.rbNormB.UseVisualStyleBackColor = true;
+            // 
+            // rbNormSum1
+            // 
+            this.rbNormSum1.AutoSize = true;
+            this.rbNormSum1.Location = new System.Drawing.Point(6, 88);
+            this.rbNormSum1.Name = "rbNormSum1";
+            this.rbNormSum1.Size = new System.Drawing.Size(116, 17);
+            this.rbNormSum1.TabIndex = 15;
+            this.rbNormSum1.TabStop = true;
+            this.rbNormSum1.Text = "Normalizare Suma1";
+            this.rbNormSum1.UseVisualStyleBackColor = true;
+            // 
+            // btnCalculNormalizare
+            // 
+            this.btnCalculNormalizare.Location = new System.Drawing.Point(6, 111);
+            this.btnCalculNormalizare.Name = "btnCalculNormalizare";
+            this.btnCalculNormalizare.Size = new System.Drawing.Size(116, 23);
+            this.btnCalculNormalizare.TabIndex = 16;
+            this.btnCalculNormalizare.Text = "Aplicare Normalizare";
+            this.btnCalculNormalizare.UseVisualStyleBackColor = true;
+            this.btnCalculNormalizare.Click += new System.EventHandler(this.btnCalculNormalizare_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.nUdMinkOrder);
+            this.groupBox3.Controls.Add(this.btnCalcDistante);
+            this.groupBox3.Controls.Add(this.rbDistE);
+            this.groupBox3.Controls.Add(this.rbDisMan);
+            this.groupBox3.Controls.Add(this.rbDisMin);
+            this.groupBox3.Location = new System.Drawing.Point(13, 300);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(224, 138);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Distante";
+            // 
+            // btnCalcDistante
+            // 
+            this.btnCalcDistante.Location = new System.Drawing.Point(6, 94);
+            this.btnCalcDistante.Name = "btnCalcDistante";
+            this.btnCalcDistante.Size = new System.Drawing.Size(113, 23);
+            this.btnCalcDistante.TabIndex = 10;
+            this.btnCalcDistante.Text = "Calcul Distante";
+            this.btnCalcDistante.UseVisualStyleBackColor = true;
+            this.btnCalcDistante.Click += new System.EventHandler(this.btnCalcDistante_Click);
+            // 
+            // nUdMinkOrder
+            // 
+            this.nUdMinkOrder.Location = new System.Drawing.Point(130, 65);
+            this.nUdMinkOrder.Name = "nUdMinkOrder";
+            this.nUdMinkOrder.Size = new System.Drawing.Size(63, 20);
+            this.nUdMinkOrder.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 450);
-            this.Controls.Add(this.lrSfBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnReadFileTest);
             this.Controls.Add(this.btnReadFileTraining);
@@ -121,6 +282,12 @@
             this.Controls.Add(this.btnLoad);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUdMinkOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,8 +299,21 @@
         private System.Windows.Forms.Button btnReadFileTraining;
         private System.Windows.Forms.Button btnReadFileTest;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button lrSfBtn;
+        private System.Windows.Forms.RadioButton rbDistE;
+        private System.Windows.Forms.RadioButton rbDisMan;
+        private System.Windows.Forms.RadioButton rbDisMin;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button lrLfBtn;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbNormSum1;
+        private System.Windows.Forms.RadioButton rbNormNom;
+        private System.Windows.Forms.RadioButton rbNormB;
+        private System.Windows.Forms.RadioButton rbNormCS;
+        private System.Windows.Forms.Button btnCalculNormalizare;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnCalcDistante;
+        private System.Windows.Forms.NumericUpDown nUdMinkOrder;
     }
 }
 
