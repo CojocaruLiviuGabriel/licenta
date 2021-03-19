@@ -15,6 +15,8 @@ namespace CitireMatrici
             List<List<double>> distante = new List<List<double>>();
             double distanta;
 
+
+            //vectori din fisieru de test
             for (var i = 0; i < matrice1.GetLength(0); i++)
             {
                 ElementeTest.Add(new List<int>());
@@ -24,6 +26,7 @@ namespace CitireMatrici
                 }
             }
 
+            //vectori din fisieru de training
             for (var i = 0; i < matrice2.GetLength(0); i++)
             {
                 ElementeTraining.Add(new List<int>());
@@ -36,10 +39,10 @@ namespace CitireMatrici
             for (var k = 0; k < ElementeTest.Count; k++)
             {
                 distante.Add(new List<double>());
-                distanta = 0;
+
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
-
+                    distanta = 0;
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
                         
@@ -84,10 +87,10 @@ namespace CitireMatrici
             for (var k = 0; k < ElementeTest.Count; k++)
             {
                 distante.Add(new List<double>());
-                distanta = 0;
+                
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
-
+                    distanta = 0;
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
                         distanta += Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]);
@@ -135,10 +138,10 @@ namespace CitireMatrici
             for (var k = 0; k < ElementeTest.Count; k++)
             {
                 distante.Add(new List<double>());
-                distanta = 0;
+                
                 for (var i = 0; i < ElementeTraining.Count; i++)
                 {
-
+                    distanta = 0;
                     for (var j = 0; j < ElementeTraining[i].Count; j++)
                     {
                         distanta += Math.Pow(Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]), order);
