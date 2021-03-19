@@ -33,7 +33,7 @@ namespace CitireMatrici
             openFileDialog.Filter = "arff files (*.arff) | *.arff";
             openFileDialog.RestoreDirectory = true;
 
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 caleFisierArff = openFileDialog.FileName;
             }
@@ -59,9 +59,9 @@ namespace CitireMatrici
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
-          
-            
+
+
+
 
         }
 
@@ -99,18 +99,23 @@ namespace CitireMatrici
 
         private void btnCalcDistante_Click(object sender, EventArgs e)
         {
+            List<List<double>> temp;
+
+
             if (rbDistE.Checked)
             {
-                distanta.DistantaEuclidiana(dateFisierTest, dateFisierTraining);
+                temp = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
+
             }
             if (rbDisMan.Checked)
             {
-                distanta.DistantaManhattan(dateFisierTest, dateFisierTraining);
+                temp = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
             }
             if (rbDisMin.Checked)
             {
-                distanta.DistantaMinkowski(dateFisierTest, dateFisierTraining,Convert.ToInt32(nUdMinkOrder.Value));
+                temp = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
             }
+
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)

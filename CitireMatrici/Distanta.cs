@@ -8,50 +8,35 @@ namespace CitireMatrici
 {
     class Distanta
     {
-        public List<List<double>> DistantaEuclidiana(int[,] matrice1, int[,] matrice2)
+        
+
+        public List<List<double>> DistantaEuclidiana(ref int[,] mTest, ref int[,] mTraining)
         {
-            List<List<int>> ElementeTest = new List<List<int>>();
-            List<List<int>> ElementeTraining = new List<List<int>>();
+
+            double dist;
             List<List<double>> distante = new List<List<double>>();
-            double distanta;
+            List<double> temp;
+            
+            dist = 0;
 
 
-            //vectori din fisieru de test
-            for (var i = 0; i < matrice1.GetLength(0); i++)
+            for (int i = 0; i < mTest.GetLength(0); i++)
             {
-                ElementeTest.Add(new List<int>());
-                for (var j = 0; j < matrice1.GetLength(1); j++)
+                temp = new List<double>();
+                for (int j = 0; j < mTraining.GetLength(0); j++)
                 {
-                    ElementeTest[i].Add(matrice1[i, j]);
-                }
-            }
-
-            //vectori din fisieru de training
-            for (var i = 0; i < matrice2.GetLength(0); i++)
-            {
-                ElementeTraining.Add(new List<int>());
-                for (var j = 0; j < matrice2.GetLength(1); j++)
-                {
-                    ElementeTraining[i].Add(matrice2[i, j]);
-                }
-            }
-
-            for (var k = 0; k < ElementeTest.Count; k++)
-            {
-                distante.Add(new List<double>());
-
-                for (var i = 0; i < ElementeTraining.Count; i++)
-                {
-                    distanta = 0;
-                    for (var j = 0; j < ElementeTraining[i].Count; j++)
+                    dist = 0;
+                    for (int k = 0; k < mTest.GetLength(1); k++)
                     {
-                        
-                        distanta += Math.Pow(ElementeTest[k][j] - ElementeTraining[i][j], 2);
-                        distanta = Math.Sqrt(distanta);
-                        
+                        dist += Math.Pow(mTest[i,k] - mTraining[j,k], 2);
+
                     }
-                    distante[k].Add(distanta);
+                    dist = Math.Sqrt(dist);
+                    temp.Add(dist);
+
+
                 }
+                distante.Add(temp);
             }
 
 
@@ -59,46 +44,34 @@ namespace CitireMatrici
             return distante;
         }
 
-        public List<List<double>> DistantaManhattan(int[,] matrice1, int[,] matrice2)
+        public List<List<double>> DistantaManhattan(ref int[,] mTest, ref int[,] mTraining)
         {
-            List<List<int>> ElementeTest = new List<List<int>>();
-            List<List<int>> ElementeTraining = new List<List<int>>();
+            double dist;
             List<List<double>> distante = new List<List<double>>();
-            double distanta;
+            List<double> temp;
 
-            for (var i = 0; i < matrice1.GetLength(0); i++)
-            {
-                ElementeTest.Add(new List<int>());
-                for (var j = 0; j < matrice1.GetLength(1); j++)
-                {
-                    ElementeTest[i].Add(matrice1[i, j]);
-                }
-            }
+            dist = 0;
 
-            for (var i = 0; i < matrice2.GetLength(0); i++)
-            {
-                ElementeTraining.Add(new List<int>());
-                for (var j = 0; j < matrice2.GetLength(1); j++)
-                {
-                    ElementeTraining[i].Add(matrice2[i, j]);
-                }
-            }
 
-            for (var k = 0; k < ElementeTest.Count; k++)
+            for (int i = 0; i < mTest.GetLength(0); i++)
             {
-                distante.Add(new List<double>());
-                
-                for (var i = 0; i < ElementeTraining.Count; i++)
+                temp = new List<double>();
+                for (int j = 0; j < mTraining.GetLength(0); j++)
                 {
-                    distanta = 0;
-                    for (var j = 0; j < ElementeTraining[i].Count; j++)
+                    dist = 0;
+                    for (int k = 0; k < mTest.GetLength(1); k++)
                     {
-                        distanta += Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]);
+                        dist += Math.Abs(mTest[i, k] - mTraining[j, k]);
+
                     }
-                    distante[k].Add(distanta);
+                    temp.Add(dist);
+
+
                 }
-               
+                distante.Add(temp);
             }
+
+
 
             return distante;
         }
@@ -109,49 +82,35 @@ namespace CitireMatrici
             return x1;
         }
 
-        public List<List<double>> DistantaMinkowski(int[,] matrice1, int[,] matrice2, int order)
+        public List<List<double>> DistantaMinkowski(ref int[,] mTest, ref int[,] mTraining, int order)
         {
-            List<List<int>> ElementeTest = new List<List<int>>();
-            List<List<int>> ElementeTraining = new List<List<int>>();
+            double dist;
             List<List<double>> distante = new List<List<double>>();
-            double distanta;
+            List<double> temp;
 
-            for (var i = 0; i < matrice1.GetLength(0); i++)
+            dist = 0;
+
+
+            for (int i = 0; i < mTest.GetLength(0); i++)
             {
-                ElementeTest.Add(new List<int>());
-                for (var j = 0; j < matrice1.GetLength(1); j++)
+                temp = new List<double>();
+                for (int j = 0; j < mTraining.GetLength(0); j++)
                 {
-                    ElementeTest[i].Add(matrice1[i, j]);
-                }
-            }
-
-            for (var i = 0; i < matrice2.GetLength(0); i++)
-            {
-                ElementeTraining.Add(new List<int>());
-                for (var j = 0; j < matrice2.GetLength(1); j++)
-                {
-                    ElementeTraining[i].Add(matrice2[i, j]);
-                }
-            }
-
-
-            for (var k = 0; k < ElementeTest.Count; k++)
-            {
-                distante.Add(new List<double>());
-                
-                for (var i = 0; i < ElementeTraining.Count; i++)
-                {
-                    distanta = 0;
-                    for (var j = 0; j < ElementeTraining[i].Count; j++)
+                    dist = 0;
+                    for (int k = 0; k < mTest.GetLength(1); k++)
                     {
-                        distanta += Math.Pow(Math.Abs(ElementeTest[k][j] - ElementeTraining[i][j]), order);
-                        distanta = Math.Pow(distanta, (double)1.0 / order);
+                        dist += Math.Pow(Math.Abs(mTest[i, k] - mTraining[j, k]), order);
+
                     }
-                    distante[k].Add(distanta);
+                    dist = Math.Pow(dist, 1.0 / order);
+                    temp.Add(dist);
+
+
                 }
-                
-                
+                distante.Add(temp);
             }
+
+
 
             return distante;
         }
