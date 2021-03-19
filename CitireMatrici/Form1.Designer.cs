@@ -34,6 +34,7 @@
             this.btnReadFileTest = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lrSfBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoad
@@ -96,11 +97,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lrSfBtn
+            // 
+            this.lrSfBtn.Location = new System.Drawing.Point(328, 61);
+            this.lrSfBtn.Name = "lrSfBtn";
+            this.lrSfBtn.Size = new System.Drawing.Size(187, 23);
+            this.lrSfBtn.TabIndex = 6;
+            this.lrSfBtn.Text = "Load and Read Small Files";
+            this.lrSfBtn.UseVisualStyleBackColor = true;
+            this.lrSfBtn.Click += new System.EventHandler(this.lrSfBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 450);
+            this.Controls.Add(this.lrSfBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnReadFileTest);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.Button btnReadFileTest;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button lrSfBtn;
     }
 }
 

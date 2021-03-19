@@ -61,8 +61,16 @@ namespace CitireMatrici
             Distanta distanta = new Distanta();
             normalizare.NormalizareBinara(dateFisierTest);
             normalizare.NormalizareBinara(dateFisierTraining);
-            distanta.DistantaManhattan(dateFisierTest, dateFisierTraining);
+            distanta.DistantaEuclidiana(dateFisierTest, dateFisierTraining);
 
+        }
+
+        private void lrSfBtn_Click(object sender, EventArgs e)
+        {
+            citire.CitesteFisierArff(out dateFisierTest, "../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
+            claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
         }
 
         private void button1_Click(object sender, EventArgs e)
