@@ -19,11 +19,12 @@ namespace CitireMatrici
         List<string> claseTest, claseTraining;
         int[,] dateFisierTest;
         int[,] dateFisierTraining;
-
+        List<Tuple<int, double>> tp = new List<Tuple<int, double>>();
 
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace CitireMatrici
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            
             Application.Exit();
         }
 
@@ -105,6 +107,7 @@ namespace CitireMatrici
             if (rbDistE.Checked)
             {
                 temp = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
+                //tp.Add(Tuple.Create(temp.Count, temp.IndexOf(2)));
 
             }
             if (rbDisMan.Checked)
@@ -115,6 +118,8 @@ namespace CitireMatrici
             {
                 temp = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
             }
+
+            
 
         }
 
