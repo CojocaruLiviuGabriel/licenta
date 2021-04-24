@@ -19,12 +19,11 @@ namespace CitireMatrici
         List<string> claseTest, claseTraining;
         int[,] dateFisierTest;
         int[,] dateFisierTraining;
-        List<Tuple<int, double>> tp = new List<Tuple<int, double>>();
-
+        List<List<Tuple<int, double>>> tuples = new List<List<Tuple<int, double>>>();
         public Form1()
         {
             InitializeComponent();
-           
+
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -43,7 +42,7 @@ namespace CitireMatrici
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+
             Application.Exit();
         }
 
@@ -103,24 +102,39 @@ namespace CitireMatrici
         {
             List<List<double>> temp;
 
-
             if (rbDistE.Checked)
             {
                 temp = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
-                //tp.Add(Tuple.Create(temp.Count, temp.IndexOf(2)));
+                tuples = sorteazaDistanaDupaIndex(temp);
 
             }
             if (rbDisMan.Checked)
             {
                 temp = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
+                tuples = sorteazaDistanaDupaIndex(temp);
             }
             if (rbDisMin.Checked)
             {
                 temp = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
+                tuples = sorteazaDistanaDupaIndex(temp);
             }
 
-            
 
+
+        }
+
+        private List<List<Tuple<int, double>>> sorteazaDistanaDupaIndex(List<List<double>> temp)
+        {
+            for (var i = 0; i < temp.Count; i++)
+            {
+                tuples.Add(new List<Tuple<int, double>>());
+                for (var j = 0; j < temp[i].Count; j++)
+                {
+                    tuples[i].Add(new Tuple<int, double>(j, temp[i][j]));
+                }
+                tuples[i] = tuples[i].OrderBy(t => t.Item2).ToList();
+            }
+            return tuples;
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)
