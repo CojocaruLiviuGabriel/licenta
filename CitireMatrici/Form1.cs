@@ -140,11 +140,6 @@ namespace CitireMatrici
             return tuples;
         }
 
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void lrSfBtn_Click(object sender, EventArgs e)
         {
             citire.CitesteFisierArff(out dateFisierTest, "../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");

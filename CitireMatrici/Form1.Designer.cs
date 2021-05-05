@@ -281,7 +281,6 @@
             this.gpKNN.TabIndex = 14;
             this.gpKNN.TabStop = false;
             this.gpKNN.Text = "KNN";
-            this.gpKNN.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // label1
             // 
