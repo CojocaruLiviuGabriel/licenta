@@ -105,25 +105,25 @@ namespace CitireMatrici
             if (rbDistE.Checked)
             {
                 temp = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
-                tuples = sorteazaDistanaDupaIndex(temp);
+                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
 
             }
             if (rbDisMan.Checked)
             {
                 temp = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
-                tuples = sorteazaDistanaDupaIndex(temp);
+                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
             }
             if (rbDisMin.Checked)
             {
                 temp = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
-                tuples = sorteazaDistanaDupaIndex(temp);
+                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
             }
 
 
 
         }
 
-        private List<List<Tuple<int, double>>> sorteazaDistanaDupaIndex(List<List<double>> temp)
+        private List<List<Tuple<int, double>>> sorteazaDistanaDupaIndex(List<List<double>> temp, int k)
         {
             for (var i = 0; i < temp.Count; i++)
             {
@@ -132,9 +132,17 @@ namespace CitireMatrici
                 {
                     tuples[i].Add(new Tuple<int, double>(j, temp[i][j]));
                 }
+
                 tuples[i] = tuples[i].OrderBy(t => t.Item2).ToList();
+                tuples[i].RemoveRange(k, tuples[i].Count - k);
             }
+
             return tuples;
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)
