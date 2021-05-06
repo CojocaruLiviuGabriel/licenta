@@ -44,7 +44,6 @@ namespace CitireMatrici
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
 
@@ -58,14 +57,6 @@ namespace CitireMatrici
         {
             citire.CitesteFisierArff(out dateFisierTest, caleFisierArff);
             claseTest = citire.ClaseDinFisier(caleFisierArff);
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-
-
-
-
         }
 
         private void lrLfBtn_Click(object sender, EventArgs e)
@@ -102,13 +93,9 @@ namespace CitireMatrici
 
         private void btnCalcDistante_Click(object sender, EventArgs e)
         {
-            
-
             if (rbDistE.Checked)
             {
                 distante = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
-                
-
             }
             if (rbDisMan.Checked)
             {
@@ -117,11 +104,7 @@ namespace CitireMatrici
             if (rbDisMin.Checked)
             {
                 distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
-
             }
-
-
-
         }
 
         private void btnKNN_Click(object sender, EventArgs e)
@@ -136,7 +119,5 @@ namespace CitireMatrici
             claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
             claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
         }
-
-
     }
 }
