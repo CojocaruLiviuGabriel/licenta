@@ -30,9 +30,6 @@
         {
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnReadFileTraining = new System.Windows.Forms.Button();
-            this.btnReadFileTest = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
             this.lrSfBtn = new System.Windows.Forms.Button();
             this.rbDistE = new System.Windows.Forms.RadioButton();
             this.rbDisMan = new System.Windows.Forms.RadioButton();
@@ -49,8 +46,9 @@
             this.nUdMinkOrder = new System.Windows.Forms.NumericUpDown();
             this.btnCalcDistante = new System.Windows.Forms.Button();
             this.gpKNN = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbK = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnKNN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,36 +75,6 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnReadFileTraining
-            // 
-            this.btnReadFileTraining.Location = new System.Drawing.Point(374, 119);
-            this.btnReadFileTraining.Name = "btnReadFileTraining";
-            this.btnReadFileTraining.Size = new System.Drawing.Size(112, 23);
-            this.btnReadFileTraining.TabIndex = 2;
-            this.btnReadFileTraining.Text = "ReadFileTraining";
-            this.btnReadFileTraining.UseVisualStyleBackColor = true;
-            this.btnReadFileTraining.Click += new System.EventHandler(this.btnReadFile_Click);
-            // 
-            // btnReadFileTest
-            // 
-            this.btnReadFileTest.Location = new System.Drawing.Point(374, 148);
-            this.btnReadFileTest.Name = "btnReadFileTest";
-            this.btnReadFileTest.Size = new System.Drawing.Size(112, 23);
-            this.btnReadFileTest.TabIndex = 3;
-            this.btnReadFileTest.Text = "ReadFile Test";
-            this.btnReadFileTest.UseVisualStyleBackColor = true;
-            this.btnReadFileTest.Click += new System.EventHandler(this.btnReadFileTest_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(374, 177);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 4;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lrSfBtn
             // 
@@ -273,6 +241,7 @@
             // 
             // gpKNN
             // 
+            this.gpKNN.Controls.Add(this.btnKNN);
             this.gpKNN.Controls.Add(this.tbK);
             this.gpKNN.Controls.Add(this.label1);
             this.gpKNN.Location = new System.Drawing.Point(19, 468);
@@ -281,6 +250,13 @@
             this.gpKNN.TabIndex = 14;
             this.gpKNN.TabStop = false;
             this.gpKNN.Text = "KNN";
+            // 
+            // tbK
+            // 
+            this.tbK.Location = new System.Drawing.Point(27, 20);
+            this.tbK.Name = "tbK";
+            this.tbK.Size = new System.Drawing.Size(66, 20);
+            this.tbK.TabIndex = 1;
             // 
             // label1
             // 
@@ -291,12 +267,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "k";
             // 
-            // tbK
+            // btnKNN
             // 
-            this.tbK.Location = new System.Drawing.Point(27, 20);
-            this.tbK.Name = "tbK";
-            this.tbK.Size = new System.Drawing.Size(66, 20);
-            this.tbK.TabIndex = 1;
+            this.btnKNN.Location = new System.Drawing.Point(7, 62);
+            this.btnKNN.Name = "btnKNN";
+            this.btnKNN.Size = new System.Drawing.Size(75, 23);
+            this.btnKNN.TabIndex = 2;
+            this.btnKNN.Text = "KNN";
+            this.btnKNN.UseVisualStyleBackColor = true;
+            this.btnKNN.Click += new System.EventHandler(this.btnKNN_Click);
             // 
             // Form1
             // 
@@ -307,9 +286,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.btnReadFileTest);
-            this.Controls.Add(this.btnReadFileTraining);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLoad);
             this.Name = "Form1";
@@ -330,9 +306,6 @@
 
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnReadFileTraining;
-        private System.Windows.Forms.Button btnReadFileTest;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button lrSfBtn;
         private System.Windows.Forms.RadioButton rbDistE;
         private System.Windows.Forms.RadioButton rbDisMan;
@@ -351,6 +324,7 @@
         private System.Windows.Forms.GroupBox gpKNN;
         private System.Windows.Forms.TextBox tbK;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnKNN;
     }
 }
 

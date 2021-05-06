@@ -15,11 +15,13 @@ namespace CitireMatrici
         CitireFisier citire = new CitireFisier();
         Normalizare normalizare = new Normalizare();
         Distanta distanta = new Distanta();
+        KNN kNN = new KNN();
         string caleFisierArff;
         List<string> claseTest, claseTraining;
         int[,] dateFisierTest;
         int[,] dateFisierTraining;
-        List<List<Tuple<int, double>>> tuples = new List<List<Tuple<int, double>>>();
+        List<List<double>> distante;
+        List<List<Tuple<int, double>>> distanteSortateCuIndex = new List<List<Tuple<int, double>>>();
         public Form1()
         {
             InitializeComponent();
@@ -100,44 +102,31 @@ namespace CitireMatrici
 
         private void btnCalcDistante_Click(object sender, EventArgs e)
         {
-            List<List<double>> temp;
+            
 
             if (rbDistE.Checked)
             {
-                temp = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
-                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
+                distante = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
+                
 
             }
             if (rbDisMan.Checked)
             {
-                temp = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
-                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
+                distante = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
             }
             if (rbDisMin.Checked)
             {
-                temp = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
-                tuples = sorteazaDistanaDupaIndex(temp, Convert.ToInt32(tbK.Text));
+                distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
+
             }
 
 
 
         }
 
-        private List<List<Tuple<int, double>>> sorteazaDistanaDupaIndex(List<List<double>> temp, int k)
+        private void btnKNN_Click(object sender, EventArgs e)
         {
-            for (var i = 0; i < temp.Count; i++)
-            {
-                tuples.Add(new List<Tuple<int, double>>());
-                for (var j = 0; j < temp[i].Count; j++)
-                {
-                    tuples[i].Add(new Tuple<int, double>(j, temp[i][j]));
-                }
-
-                tuples[i] = tuples[i].OrderBy(t => t.Item2).ToList();
-                tuples[i].RemoveRange(k, tuples[i].Count - k);
-            }
-
-            return tuples;
+            distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante, Convert.ToInt32(tbK.Text));
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)

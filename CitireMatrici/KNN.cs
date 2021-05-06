@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace CitireMatrici
 {
-    class KNN
+    public class KNN
     {
+        
+
+        public List<List<Tuple<int, double>>> sorteazaDistanaDupaIndex(ref List<List<double>> temp,int k)
+        {
+            List<List<Tuple<int, double>>> tuples = new List<List<Tuple<int, double>>>();
+
+            for (var i = 0; i < temp.Count; i++)
+            {
+                tuples.Add(new List<Tuple<int, double>>());
+                for (var j = 0; j < temp[i].Count; j++)
+                {
+                    tuples[i].Add(new Tuple<int, double>(j, temp[i][j]));
+                }
+
+                tuples[i] = tuples[i].OrderBy(t => t.Item2).ToList();
+                tuples[i].RemoveRange(k, tuples[i].Count - k);
+            }
+
+            return tuples;
+        }
     }
 }
