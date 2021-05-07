@@ -8,9 +8,10 @@ namespace CitireMatrici
 {
     public class ConfusionMatrix
     {
-        private int truePositive { get; set; }
-        private int trueNegative { get; set; }
-        private int falsePositive { get; set; }
-        private int falseNegative { get; set; }
+        private int TruePositive;
+        private int TrueNegative;
+        private int FalsePositive;
+        private int FalseNegative;
+
     }
 }
