@@ -95,11 +95,11 @@ namespace CitireMatrici
         {
             if (rbDistE.Checked)
             {
-                distante = distanta.DistantaEuclidiana(ref dateFisierTest, ref dateFisierTraining);
+                distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, 2);
             }
             if (rbDisMan.Checked)
             {
-                distante = distanta.DistantaManhattan(ref dateFisierTest, ref dateFisierTraining);
+                distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, 1);
             }
             if (rbDisMin.Checked)
             {
