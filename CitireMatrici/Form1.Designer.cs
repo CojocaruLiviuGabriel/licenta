@@ -46,9 +46,10 @@
             this.nUdMinkOrder = new System.Windows.Forms.NumericUpDown();
             this.btnCalcDistante = new System.Windows.Forms.Button();
             this.gpKNN = new System.Windows.Forms.GroupBox();
+            this.btnKNN = new System.Windows.Forms.Button();
             this.tbK = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnKNN = new System.Windows.Forms.Button();
+            this.rbDistCos = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -111,7 +112,7 @@
             // rbDisMin
             // 
             this.rbDisMin.AutoSize = true;
-            this.rbDisMin.Location = new System.Drawing.Point(6, 65);
+            this.rbDisMin.Location = new System.Drawing.Point(6, 92);
             this.rbDisMin.Name = "rbDisMin";
             this.rbDisMin.Size = new System.Drawing.Size(117, 17);
             this.rbDisMin.TabIndex = 9;
@@ -210,6 +211,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.rbDistCos);
             this.groupBox3.Controls.Add(this.nUdMinkOrder);
             this.groupBox3.Controls.Add(this.btnCalcDistante);
             this.groupBox3.Controls.Add(this.rbDistE);
@@ -217,21 +219,21 @@
             this.groupBox3.Controls.Add(this.rbDisMin);
             this.groupBox3.Location = new System.Drawing.Point(13, 300);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(224, 138);
+            this.groupBox3.Size = new System.Drawing.Size(224, 162);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Distante";
             // 
             // nUdMinkOrder
             // 
-            this.nUdMinkOrder.Location = new System.Drawing.Point(130, 65);
+            this.nUdMinkOrder.Location = new System.Drawing.Point(130, 89);
             this.nUdMinkOrder.Name = "nUdMinkOrder";
             this.nUdMinkOrder.Size = new System.Drawing.Size(63, 20);
             this.nUdMinkOrder.TabIndex = 11;
             // 
             // btnCalcDistante
             // 
-            this.btnCalcDistante.Location = new System.Drawing.Point(6, 94);
+            this.btnCalcDistante.Location = new System.Drawing.Point(6, 115);
             this.btnCalcDistante.Name = "btnCalcDistante";
             this.btnCalcDistante.Size = new System.Drawing.Size(113, 23);
             this.btnCalcDistante.TabIndex = 10;
@@ -251,6 +253,16 @@
             this.gpKNN.TabStop = false;
             this.gpKNN.Text = "KNN";
             // 
+            // btnKNN
+            // 
+            this.btnKNN.Location = new System.Drawing.Point(7, 62);
+            this.btnKNN.Name = "btnKNN";
+            this.btnKNN.Size = new System.Drawing.Size(75, 23);
+            this.btnKNN.TabIndex = 2;
+            this.btnKNN.Text = "KNN";
+            this.btnKNN.UseVisualStyleBackColor = true;
+            this.btnKNN.Click += new System.EventHandler(this.btnKNN_Click);
+            // 
             // tbK
             // 
             this.tbK.Location = new System.Drawing.Point(27, 20);
@@ -267,15 +279,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "k";
             // 
-            // btnKNN
+            // rbDistCos
             // 
-            this.btnKNN.Location = new System.Drawing.Point(7, 62);
-            this.btnKNN.Name = "btnKNN";
-            this.btnKNN.Size = new System.Drawing.Size(75, 23);
-            this.btnKNN.TabIndex = 2;
-            this.btnKNN.Text = "KNN";
-            this.btnKNN.UseVisualStyleBackColor = true;
-            this.btnKNN.Click += new System.EventHandler(this.btnKNN_Click);
+            this.rbDistCos.AutoSize = true;
+            this.rbDistCos.Location = new System.Drawing.Point(6, 66);
+            this.rbDistCos.Name = "rbDistCos";
+            this.rbDistCos.Size = new System.Drawing.Size(104, 17);
+            this.rbDistCos.TabIndex = 12;
+            this.rbDistCos.TabStop = true;
+            this.rbDistCos.Text = "Distanta Cosinus";
+            this.rbDistCos.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -325,6 +338,7 @@
         private System.Windows.Forms.TextBox tbK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnKNN;
+        private System.Windows.Forms.RadioButton rbDistCos;
     }
 }
 

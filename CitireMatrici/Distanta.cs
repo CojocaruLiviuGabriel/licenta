@@ -27,7 +27,7 @@ namespace CitireMatrici
 
                     for (int k = 0; k < mTest.GetLength(1); k++)
                     {
-                        dotProduct += mTest[i, k] + mTraining[j, k];
+                        dotProduct += mTest[i, k] * mTraining[j, k];
                         sumAsTest += Math.Pow(mTest[i, k], 2);
                         sumAsTraining += Math.Pow(mTraining[j, k], 2);
                     }

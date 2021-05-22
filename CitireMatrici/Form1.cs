@@ -105,6 +105,10 @@ namespace CitireMatrici
             {
                 distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
             }
+            if (rbDistCos.Checked)
+            {
+                distante = distanta.DistantaCosinus(ref dateFisierTest, ref dateFisierTraining);
+            }
         }
 
         private void btnKNN_Click(object sender, EventArgs e)
