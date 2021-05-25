@@ -24,19 +24,62 @@ namespace CitireMatrici
             TrueNegative = trueNegative;
         }
 
-        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala, List<string> clasaPredictionata)
+        public static ConfusionMatrix[] confusionMatrices(List<string> clasaReala, 
+                                                   List<string> clasaPredictionata, 
+                                                   List<List<Tuple<int,double>>> tuples)
         {
             ConfusionMatrix[] matrici = new ConfusionMatrix[clasaReala.Count];
 
-            for(var i = 0; i < matrici.Length; i++)
+            for(var i = 0; i < clasaReala.Count; i++)
             {
-                for(var j = 0; j < matrici.Length; j++)
-                {
+                matrici[i] = new ConfusionMatrix(0, 0, 0, 0);
+            }
 
+            for(var i = 0; i < tuples.Count; i++)
+            {
+                for (var j = 0; j < tuples[i].Count; j++)
+                {
+                    bool prediction = clasaPredictionata[tuples[i][j].Item1] == clasaReala[i];
+
+                    if (clasaPredictionata[tuples[i][j].Item1] == clasaReala[i])
+                    {
+                        if(prediction == true)
+                        {
+                            matrici[i].TruePositive++;
+                        }
+                        else
+                        {
+                            matrici[i].TrueNegative++;
+                        }
+                    }
+                    else
+                    {
+                        if(prediction == true)
+                        {
+                            matrici[i].FalsePositive++;
+                        }
+                        else
+                        {
+                            matrici[i].FalseNegative++;
+                        }
+                    }
+                    
                 }
             }
 
             return matrici;
+        }
+
+
+        public void test(List<List<Tuple<int, double>>> tuples)
+        {
+            for(var i = 0; i < tuples.Count; i++)
+            {
+               for(var j = 0; j < tuples[i].Count; j++)
+                {
+                    var x = tuples[i][j].Item1;
+                }
+            }
         }
     }
 }
