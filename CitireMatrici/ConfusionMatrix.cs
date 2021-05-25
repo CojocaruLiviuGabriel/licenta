@@ -37,11 +37,11 @@ namespace CitireMatrici
 
             for(var i = 0; i < tuples.Count; i++)
             {
-                for (var j = 0; j < tuples[i].Count; j++)
+                for (var j = 0; j < tuples.Count; j++)
                 {
-                    bool prediction = clasaPredictionata[tuples[i][j].Item1] == clasaReala[i];
+                    bool prediction = clasaPredictionata[tuples[i][0].Item1] == clasaReala[i];
 
-                    if (clasaPredictionata[tuples[i][j].Item1] == clasaReala[i])
+                    if (clasaPredictionata[tuples[i][0].Item1] == clasaReala[i])
                     {
                         if(prediction == true)
                         {
