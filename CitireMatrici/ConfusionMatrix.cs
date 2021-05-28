@@ -9,12 +9,17 @@ namespace CitireMatrici
     public class ConfusionMatrix
     {
         //clasa reala - DA
-        private int TruePositive { get; set; } //clasa predicitonata DA
-        private int FalseNegative { get; set; } //clasa predicitonata NU
+        private int TruePositive; //clasa predicitonata DA
+        private int FalseNegative; //clasa predicitonata NU
 
         //clasa reala - NU
-        private int FalsePositive{get;set;} //clasa predicitonata DA
-        private int TrueNegative { get; set; } //clasa predicitonata NU
+        private int FalsePositive; //clasa predicitonata DA
+        private int TrueNegative; //clasa predicitonata NU
+
+        public int TP { get => TruePositive; set => TruePositive = value; }
+        public int FN { get => FalseNegative; set => FalseNegative = value; }
+        public int FP { get => FalsePositive; set => FalsePositive = value; }
+        public int TN { get => TrueNegative; set => TrueNegative = value; }
 
         public ConfusionMatrix(int truePositive, int falseNegative, int falsePositive, int trueNegative)
         {
