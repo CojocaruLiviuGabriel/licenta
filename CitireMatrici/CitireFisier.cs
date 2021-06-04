@@ -79,9 +79,29 @@ namespace CitireMatrici
                     temp.Add(aux[1]);
                 }
             }
+          
+            return temp;
+        }
 
-            List<string> a = temp.Distinct().ToList();
-            return a;
+        public List<string> ClaseDinFisierTopiceUnice(string caleFisier)
+        {
+            List<string> temp = new List<string>();
+            StreamReader streamReader = new StreamReader(caleFisier);
+
+            string linieDinFisier;
+
+            while ((linieDinFisier = streamReader.ReadLine()) != null)
+            {
+                if (!linieDinFisier.StartsWith("@") && !linieDinFisier.StartsWith("#") && linieDinFisier.Contains("c"))
+                {
+                    int index = linieDinFisier.IndexOf("#");
+                    string[] aux = linieDinFisier.Substring(index + 1).Split();
+                    temp.Add(aux[1]);
+                }
+            }
+
+            temp = temp.Distinct().ToList();
+            return temp;
         }
 
 

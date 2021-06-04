@@ -18,11 +18,11 @@ namespace CitireMatrici
         KNN kNN = new KNN();
         
         string caleFisierArff;
-        public List<string> claseTest, claseTraining;
+        public static List<string> claseTest, claseTraining, claseUniceTest, claseUniceTraining;
         int[,] dateFisierTest;
         int[,] dateFisierTraining;
         List<List<double>> distante;
-        List<List<Tuple<int, double>>> distanteSortateCuIndex = new List<List<Tuple<int, double>>>();
+        List<List<Tuple<string, double>>> distanteSortateCuIndex = new List<List<Tuple<string, double>>>();
         public Form1()
         {
             InitializeComponent();
@@ -66,6 +66,18 @@ namespace CitireMatrici
             citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
             claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_1309.0.arff");
             claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
+            claseUniceTest = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            claseUniceTraining = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
+        }
+
+        private void lrSfBtn_Click(object sender, EventArgs e)
+        {
+            citire.CitesteFisierArff(out dateFisierTest, "../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
+            claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
+            claseUniceTest = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
+            claseUniceTraining = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
         }
 
         private void btnCalculNormalizare_Click(object sender, EventArgs e)
@@ -115,15 +127,9 @@ namespace CitireMatrici
         private void btnKNN_Click(object sender, EventArgs e)
         {
             distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante, Convert.ToInt32(tbK.Text));
-            ConfusionMatrix.confusionMatrices(claseTest, claseTraining, distanteSortateCuIndex);
+            //ConfusionMatrix.confusionMatrices(claseTest, claseTraining, distanteSortateCuIndex);
         }
 
-        private void lrSfBtn_Click(object sender, EventArgs e)
-        {
-            citire.CitesteFisierArff(out dateFisierTest, "../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
-            citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
-            claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
-            claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
-        }
+        
     }
 }
