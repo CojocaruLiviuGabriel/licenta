@@ -29,62 +29,57 @@ namespace CitireMatrici
             TrueNegative = trueNegative;
         }
 
-        public static ConfusionMatrix[] confusionMatrices(List<string> clasaReala, 
-                                                   List<string> clasaPredictionata, 
-                                                   List<List<Tuple<int,double>>> tuples)
-        {
-            ConfusionMatrix[] matrici = new ConfusionMatrix[clasaReala.Count];
+        public static ConfusionMatrix[] confusionMatrices(List<string> clasaReala, List<string> clasaPredictionata,
+                                                          List<List<Tuple<string, double>>> distantaSortataCuClasa)
 
-            for(var i = 0; i < clasaReala.Count; i++)
+        {
+            //array cu matrici de eroare
+            ConfusionMatrix[] matriciDeEroare = new ConfusionMatrix[Form1.claseUniceTest.Count];
+
+            //Initializare matrici de eroare pentru clase
+            for (int i = 0; i < Form1.claseUniceTest.Count; i++)
             {
-                matrici[i] = new ConfusionMatrix(0, 0, 0, 0);
+                matriciDeEroare[i] = new ConfusionMatrix(0, 0, 0, 0);
             }
 
-            for(var i = 0; i < tuples.Count; i++)
+            for (int i = 0; i < distantaSortataCuClasa.Count; i++)
             {
-                for (var j = 0; j < tuples.Count; j++)
+                for (int j = 0; j < Form1.claseUniceTest.Count; j++)
                 {
-                    bool prediction = clasaPredictionata[tuples[i][0].Item1] == clasaReala[i];
-
-                    if (clasaPredictionata[tuples[i][0].Item1] == clasaReala[i])
-                    {
-                        if(prediction == true)
-                        {
-                            matrici[i].TruePositive++;
-                        }
-                        else
-                        {
-                            matrici[i].TrueNegative++;
-                        }
-                    }
-                    else
-                    {
-                        if(prediction == true)
-                        {
-                            matrici[i].FalsePositive++;
-                        }
-                        else
-                        {
-                            matrici[i].FalseNegative++;
-                        }
-                    }
                     
+                    
+
                 }
             }
 
-            return matrici;
+            return matriciDeEroare;
         }
 
-
-        public void test(List<List<Tuple<int, double>>> tuples)
-        {
-            for(var i = 0; i < tuples.Count; i++)
-            {
-               for(var j = 0; j < tuples[i].Count; j++)
-                {
-                    var x = tuples[i][j].Item1;
-                }
-            }
-        }
     }
 }
+
+
+/*bool prediction = clasaPredictionata[tuples[i][0].Item1] == clasaReala[i];
+
+if (clasaPredictionata[tuples[i][0].Item1] == clasaReala[i])
+{
+    if(prediction == true)
+    {
+        matrici[i].TruePositive++;
+    }
+    else
+    {
+        matrici[i].TrueNegative++;
+    }
+}
+else
+{
+    if(prediction == true)
+    {
+        matrici[i].FalsePositive++;
+    }
+    else
+    {
+        matrici[i].FalseNegative++;
+    }
+}*/

@@ -127,7 +127,7 @@ namespace CitireMatrici
         private void btnKNN_Click(object sender, EventArgs e)
         {
             distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante, Convert.ToInt32(tbK.Text));
-            //ConfusionMatrix.confusionMatrices(claseTest, claseTraining, distanteSortateCuIndex);
+            ConfusionMatrix.confusionMatrices(claseTest, claseTraining, distanteSortateCuIndex);
         }
 
         
