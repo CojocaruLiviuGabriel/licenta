@@ -18,7 +18,7 @@ namespace CitireMatrici
         KNN kNN = new KNN();
         
         string caleFisierArff;
-        List<string> claseTest, claseTraining;
+        public List<string> claseTest, claseTraining;
         int[,] dateFisierTest;
         int[,] dateFisierTraining;
         List<List<double>> distante;

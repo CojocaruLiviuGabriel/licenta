@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CitireMatrici
 {
@@ -79,7 +80,8 @@ namespace CitireMatrici
                 }
             }
 
-            return temp;
+            List<string> a = temp.Distinct().ToList();
+            return a;
         }
 
 
