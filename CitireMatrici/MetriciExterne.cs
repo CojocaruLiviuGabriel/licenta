@@ -25,32 +25,48 @@ namespace CitireMatrici
         public List<List<double>> CalculMetrici(ConfusionMatrix[] matriciDeEroare)
         {
             metriciPerClasa = new List<List<double>>();
+            int i = 0;
 
-            for (int i = 0; i < matriciDeEroare.Length; i++)
+            for (i = 0; i < matriciDeEroare.Length; i++)
             {
                 metriciPerClasa.Add(new List<double>());
-
-                metriciPerClasa[i].Add(Convert.ToDouble((matriciDeEroare[i].TP + matriciDeEroare[i].TN) / (matriciDeEroare[i].TP + matriciDeEroare[i].FN + matriciDeEroare[i].FP + matriciDeEroare[i].TN)));
-                metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FP)));
-                metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FN)));
-                metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TN / (matriciDeEroare[i].TN + matriciDeEroare[i].FN)));
                 
-                double auxAcc = (matriciDeEroare[i].TP + matriciDeEroare[i].TN) / (matriciDeEroare[i].TP + matriciDeEroare[i].FN + matriciDeEroare[i].FP + matriciDeEroare[i].TN);
-                double auxPr = matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FP);
-                double auxRe = matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FN);
-                double auxTrn = matriciDeEroare[i].TN / (matriciDeEroare[i].TN + matriciDeEroare[i].FN);
+                metriciPerClasa[i].Add(Convert.ToDouble((matriciDeEroare[i].TP + matriciDeEroare[i].TN) / (matriciDeEroare[i].TP + matriciDeEroare[i].FN + matriciDeEroare[i].FP + matriciDeEroare[i].TN)));
+                if (matriciDeEroare[i].TP + matriciDeEroare[i].FP != 0)
+                {
+                    metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FP)));
+                }
+                else
+                {
+                    metriciPerClasa[i].Add(0);
+                }
+                if (matriciDeEroare[i].TP + matriciDeEroare[i].FN != 0)
+                {
+                    metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TP / (matriciDeEroare[i].TP + matriciDeEroare[i].FN)));
+                    metriciPerClasa[i].Add(Convert.ToDouble(matriciDeEroare[i].TN / (matriciDeEroare[i].TN + matriciDeEroare[i].FN)));
+                }
+                else
+                {
+                    metriciPerClasa[i].Add(0);
+                    metriciPerClasa[i].Add(0);
+                }
+                
 
-                accuracy += auxAcc;
-                precision += auxPr;
-                recall += auxRe;
-                trueNegativeRate += auxTrn;
+                accuracy += metriciPerClasa[i][0];
+                precision += metriciPerClasa[i][1];
+                recall += metriciPerClasa[i][2];
+                trueNegativeRate += metriciPerClasa[i][3];
             }
 
+            metriciPerClasa.Add(new List<double>());
             accuracy = accuracy / matriciDeEroare.Length;
             precision = precision / matriciDeEroare.Length;
             recall = recall / matriciDeEroare.Length;
             trueNegativeRate = trueNegativeRate / matriciDeEroare.Length;
-
+            metriciPerClasa[i].Add(accuracy);
+            metriciPerClasa[i].Add(precision);
+            metriciPerClasa[i].Add(recall);
+            metriciPerClasa[i].Add(trueNegativeRate);
             return metriciPerClasa;
         }
     }

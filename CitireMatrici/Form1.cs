@@ -16,7 +16,9 @@ namespace CitireMatrici
         Normalizare normalizare = new Normalizare();
         Distanta distanta = new Distanta();
         KNN kNN = new KNN();
-        
+        MetriciExterne externe = new MetriciExterne();
+        List<List<double>> metrici = new List<List<double>>();
+        ConfusionMatrix cn = new ConfusionMatrix();
         string caleFisierArff;
         public static List<string> claseTest, claseTraining, claseUniceTest, claseUniceTraining;
         int[,] dateFisierTest;
@@ -136,7 +138,8 @@ namespace CitireMatrici
         private void btnKNN_Click(object sender, EventArgs e)
         {
             distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante, Convert.ToInt32(tbK.Text));
-            ConfusionMatrix.confusionMatrices(claseTest, claseTraining, distanteSortateCuIndex);
+           // cn.confusionMatrices(claseTest,distanteSortateCuIndex);
+            metrici = externe.CalculMetrici(cn.confusionMatrices(claseTest, distanteSortateCuIndex));
         }
 
         
