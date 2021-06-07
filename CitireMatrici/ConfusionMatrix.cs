@@ -30,7 +30,7 @@ namespace CitireMatrici
         }
 
         public ConfusionMatrix() { }
-        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala, 
+        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala,
                                                           List<List<Tuple<string, double>>> distantaSortataCuClasa)
 
         {
@@ -77,6 +77,21 @@ namespace CitireMatrici
             }
 
             return matriciDeEroare;
+        }
+
+        public bool checkIfAllElementsAreEqual(int[] freqArr)
+        {
+            int first = freqArr[0];
+
+            for (int i = 1; i < freqArr.Length; i++)
+            {
+                if (freqArr[i] != first)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
     }
