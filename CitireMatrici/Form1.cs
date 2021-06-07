@@ -82,25 +82,34 @@ namespace CitireMatrici
 
         private void btnCalculNormalizare_Click(object sender, EventArgs e)
         {
-            if (rbNormB.Checked)
+            if (dateFisierTest == null && dateFisierTraining == null)
             {
-                normalizare.NormalizareBinara(dateFisierTest);
-                normalizare.NormalizareBinara(dateFisierTraining);
+                MessageBox.Show("Mai intai trebuie citite datele!");
             }
-            if (rbNormCS.Checked)
+            else
             {
-                normalizare.NormalizareConrnellSmart(dateFisierTest);
-                normalizare.NormalizareConrnellSmart(dateFisierTraining);
-            }
-            if (rbNormNom.Checked)
-            {
-                normalizare.NormalizareNominala(dateFisierTest);
-                normalizare.NormalizareNominala(dateFisierTraining);
-            }
-            if (rbNormSum1.Checked)
-            {
-                normalizare.NormalizareSuma1(dateFisierTest);
-                normalizare.NormalizareSuma1(dateFisierTraining);
+
+
+                if (rbNormB.Checked)
+                {
+                    normalizare.NormalizareBinara(dateFisierTest);
+                    normalizare.NormalizareBinara(dateFisierTraining);
+                }
+                if (rbNormCS.Checked)
+                {
+                    normalizare.NormalizareConrnellSmart(dateFisierTest);
+                    normalizare.NormalizareConrnellSmart(dateFisierTraining);
+                }
+                if (rbNormNom.Checked)
+                {
+                    normalizare.NormalizareNominala(dateFisierTest);
+                    normalizare.NormalizareNominala(dateFisierTraining);
+                }
+                if (rbNormSum1.Checked)
+                {
+                    normalizare.NormalizareSuma1(dateFisierTest);
+                    normalizare.NormalizareSuma1(dateFisierTraining);
+                }
             }
         }
 
