@@ -28,7 +28,6 @@ namespace CitireMatrici
             {
                 if ((linieDinFisier.StartsWith("@")) || (linieDinFisier.StartsWith("#")) || (linieDinFisier == ""))
                 {
-                    //Nu fa nimic, nu imi introdu in lista de string
                 }
                 else
                 {
@@ -62,6 +61,7 @@ namespace CitireMatrici
 
             return matrix;
         }
+
 
         public List<string> ClaseDinFisier(string caleFisier)
         {
