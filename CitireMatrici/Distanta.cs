@@ -9,7 +9,7 @@ namespace CitireMatrici
     class Distanta
     {
             
-        public List<List<double>> DistantaCosinus(ref int[,] mTest, ref int[,] mTraining)
+        public List<List<double>> DistantaCosinus(ref double[,] mTest, ref double[,] mTraining)
         {
             double dotProduct, sumAsTest, sumAsTraining;
             List<List<double>> distante = new List<List<double>>();
@@ -44,7 +44,7 @@ namespace CitireMatrici
             
         }
 
-        public List<List<double>> DistantaMinkowski(ref int[,] mTest, ref int[,] mTraining, int order)
+        public List<List<double>> DistantaMinkowski(ref double[,] mTest, ref double[,] mTraining, int order)
         {
             double dist;
             List<List<double>> distante = new List<List<double>>();

@@ -9,7 +9,7 @@ namespace CitireMatrici
     class Normalizare
     {
 
-        public void NormalizareBinara(int[,] matrix)
+        public void NormalizareBinara(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
@@ -31,11 +31,10 @@ namespace CitireMatrici
             }
         }
 
-        public void NormalizareConrnellSmart(int[,] matrix)
+        public void NormalizareConrnellSmart(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            double[,] mat = new double[rows, cols];
 
             for (int i = 0; i < rows; i++)
             {
@@ -43,79 +42,76 @@ namespace CitireMatrici
                 {
                     if (matrix[i, j] > 0)
                     {
-                        mat[i, j] = 1 + Math.Log10(1 + Math.Log10((double)matrix[i, j]));
+                        matrix[i, j] = 1 + Math.Log10(1 + Math.Log10((double)matrix[i, j]));
                     }
                     else
                     {
-                        mat[i, j] = 0;
+                        matrix[i, j] = 0;
                     }
                 }
             }
         }
 
-        public void NormalizareNominala(int[,] matrix)
+        public void NormalizareNominala(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            double[,] mat = new double[rows, cols];
-            double[,] matNormalizata = new double[rows, cols];
+            double max = -1;
+            double[] maxValue = new double[rows];
 
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if (matrix[i, j] > 0)
+                    if (matrix[i, j] < 0)
                     {
-                        mat[i, j] = matrix[i,j];
+                        matrix[i, j] = 0;
                     }
-                    else
+                    if(matrix[i,j] > max)
                     {
-                        mat[i, j] = 0;
+                        max = matrix[i, j];
                     }
                 }
+                maxValue[i] = max;
+                max = 0;
             }
-
-            double maxValue = mat.Cast<double>().Max();
 
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    matNormalizata[i, j] = mat[i, j] / maxValue;
+                    matrix[i, j] = matrix[i, j] / maxValue[i];
                 }
             }
 
         }
 
-        public void NormalizareSuma1(int[,] matrix)
+        public void NormalizareSuma1(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            double[,] mat = new double[rows, cols];
-            double[,] matNormalizata = new double[rows, cols];
+            double[] sumeLini = new double[rows];
 
             for (int i = 0; i < rows; i++)
-            {
+            { 
+                sumeLini[i] = 0;
+
                 for (int j = 0; j < cols; j++)
                 {
-                    if (matrix[i, j] > 0)
+                    if (matrix[i, j] < 0)
                     {
-                        mat[i, j] = matrix[i, j];
+                        matrix[i, j] = 0;
                     }
-                    else
-                    {
-                        mat[i, j] = 0;
-                    }
+
+                    sumeLini[i] = sumeLini[i] + matrix[i, j];
                 }
             }
 
-            double suma = mat.Cast<double>().Sum();
-
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    matNormalizata[i, j] = mat[i, j] / suma;
+                    matrix[i, j] = matrix[i, j] / sumeLini[i];
                 }
             }
         }

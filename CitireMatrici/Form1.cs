@@ -21,8 +21,8 @@ namespace CitireMatrici
         ConfusionMatrix cn = new ConfusionMatrix();
         string caleFisierArff;
         public static List<string> claseTest, claseTraining, claseUniceTest, claseUniceTraining;
-        int[,] dateFisierTest;
-        int[,] dateFisierTraining;
+        double[,] dateFisierTest;
+        double[,] dateFisierTraining;
         List<List<double>> distante;
         List<List<Tuple<string, double>>> distanteSortateCuIndex = new List<List<Tuple<string, double>>>();
         public Form1()
