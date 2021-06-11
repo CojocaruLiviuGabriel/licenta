@@ -30,9 +30,7 @@ namespace CitireMatrici
         }
 
         public ConfusionMatrix() { }
-        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala,
-                                                          List<List<Tuple<string, double>>> distantaSortataCuClasa)
-
+        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala,List<List<Tuple<string, double>>> distantaSortataCuClasa)
         {
             //array cu matrici de eroare
             ConfusionMatrix[] matriciDeEroare = new ConfusionMatrix[Form1.claseUniceTraining.Count];
