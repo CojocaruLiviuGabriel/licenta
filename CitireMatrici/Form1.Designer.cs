@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLoad = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lrSfBtn = new System.Windows.Forms.Button();
             this.rbDistE = new System.Windows.Forms.RadioButton();
@@ -43,29 +42,19 @@
             this.rbNormB = new System.Windows.Forms.RadioButton();
             this.rbNormCS = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbDistCos = new System.Windows.Forms.RadioButton();
             this.nUdMinkOrder = new System.Windows.Forms.NumericUpDown();
             this.btnCalcDistante = new System.Windows.Forms.Button();
             this.gpKNN = new System.Windows.Forms.GroupBox();
             this.btnKNN = new System.Windows.Forms.Button();
             this.tbK = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbDistCos = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUdMinkOrder)).BeginInit();
             this.gpKNN.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(374, 90);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 23);
-            this.btnLoad.TabIndex = 0;
-            this.btnLoad.Text = "Load File";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnExit
             // 
@@ -224,6 +213,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Distante";
             // 
+            // rbDistCos
+            // 
+            this.rbDistCos.AutoSize = true;
+            this.rbDistCos.Location = new System.Drawing.Point(6, 66);
+            this.rbDistCos.Name = "rbDistCos";
+            this.rbDistCos.Size = new System.Drawing.Size(104, 17);
+            this.rbDistCos.TabIndex = 12;
+            this.rbDistCos.TabStop = true;
+            this.rbDistCos.Text = "Distanta Cosinus";
+            this.rbDistCos.UseVisualStyleBackColor = true;
+            // 
             // nUdMinkOrder
             // 
             this.nUdMinkOrder.Location = new System.Drawing.Point(130, 89);
@@ -279,17 +279,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "k";
             // 
-            // rbDistCos
-            // 
-            this.rbDistCos.AutoSize = true;
-            this.rbDistCos.Location = new System.Drawing.Point(6, 66);
-            this.rbDistCos.Name = "rbDistCos";
-            this.rbDistCos.Size = new System.Drawing.Size(104, 17);
-            this.rbDistCos.TabIndex = 12;
-            this.rbDistCos.TabStop = true;
-            this.rbDistCos.Text = "Distanta Cosinus";
-            this.rbDistCos.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,7 +289,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnLoad);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -316,8 +304,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button lrSfBtn;
         private System.Windows.Forms.RadioButton rbDistE;
