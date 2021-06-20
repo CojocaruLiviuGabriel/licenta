@@ -34,7 +34,7 @@ namespace CitireMatrici
 
                     sumAsTest = Math.Sqrt(sumAsTest);
                     sumAsTraining = Math.Sqrt(sumAsTraining);
-                    temp.Add(1 - (dotProduct / (sumAsTest * sumAsTraining)));
+                    temp.Add((dotProduct / (sumAsTest * sumAsTraining)));
                         
                 }
                 distante.Add(temp);
