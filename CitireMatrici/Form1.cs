@@ -70,8 +70,8 @@ namespace CitireMatrici
             citire.CitesteFisierArff(out dateFisierTraining, "../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
             claseTest = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Testing_SVM_1309.0.arff");
             claseTraining = citire.ClaseDinFisier("../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
-            claseUniceTest = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Testing_SVM_100.0.arff");
-            claseUniceTraining = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Training_SVM_100.0.arff");
+            claseUniceTest = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Testing_SVM_1309.0.arff");
+            claseUniceTraining = citire.ClaseDinFisierTopiceUnice("../../InputDataArff/MultiClass_Training_SVM_1309.0.arff");
         }
 
         private void lrSfBtn_Click(object sender, EventArgs e)
@@ -122,6 +122,7 @@ namespace CitireMatrici
             if (rbDistE.Checked)
             {
                 distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, 2);
+                MessageBox.Show("Distante calculate!");
             }
             if (rbDisMan.Checked)
             {
@@ -141,8 +142,8 @@ namespace CitireMatrici
         {
             k = Convert.ToInt32(tbK.Text);
             distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante,k);
-            cn.freqClase(distanteSortateCuIndex);
-           // cn.confusionMatrices(claseTest,distanteSortateCuIndex);
+          //  cn.freqClase(distanteSortateCuIndex);
+            cn.confusionMatrices(claseTest,distanteSortateCuIndex);
             metrici = externe.CalculMetrici(cn.confusionMatrices(claseTest, distanteSortateCuIndex));
             s.WriteOutputData(metrici);
         }
