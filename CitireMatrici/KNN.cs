@@ -21,7 +21,7 @@ namespace CitireMatrici
                 }
 
                 tuples[i] = tuples[i].OrderBy(t => t.Item2).ToList();
-                tuples[i].RemoveRange(k, tuples[i].Count - k);
+                //tuples[i].RemoveRange(k, tuples[i].Count - k);
             }
 
             return tuples;

@@ -16,6 +16,7 @@ namespace CitireMatrici
         private double FalsePositive; //clasa predicitonata DA
         private double TrueNegative; //clasa predicitonata NU
 
+        
         public double TP { get => TruePositive; set => TruePositive = value; }
         public double FN { get => FalseNegative; set => FalseNegative = value; }
         public double FP { get => FalsePositive; set => FalsePositive = value; }
@@ -77,15 +78,33 @@ namespace CitireMatrici
             return matriciDeEroare;
         }
 
+        public void freqClase(List<List<Tuple<string, double>>> distantaSortataCuClasa)
+        {
+            for(int i = 0; i < distantaSortataCuClasa.Count; i++)
+            {
+                for(int j = 0; j < distantaSortataCuClasa[i].Count; j++)
+                {
+                    for(int h = 0; h < Form1.k; h++)
+                    {
+                      
+
+                    }
+                }
+            }
+        }
+
         public bool checkIfAllElementsAreEqual(int[] freqArr)
         {
             int first = freqArr[0];
 
-            for (int i = 1; i < freqArr.Length; i++)
+            if (freqArr.Length > 1)
             {
-                if (freqArr[i] != first)
+                for (int i = 1; i < freqArr.Length; i++)
                 {
-                    return false;
+                    if (freqArr[i] != first)
+                    {
+                        return false;
+                    }
                 }
             }
 

@@ -12,6 +12,7 @@ namespace CitireMatrici
 {
     public partial class Form1 : Form
     {
+        public static int k;
         CitireFisier citire = new CitireFisier();
         Normalizare normalizare = new Normalizare();
         Distanta distanta = new Distanta();
@@ -19,6 +20,7 @@ namespace CitireMatrici
         MetriciExterne externe = new MetriciExterne();
         List<List<double>> metrici = new List<List<double>>();
         ConfusionMatrix cn = new ConfusionMatrix();
+        Salvare s = new Salvare();
         string caleFisierArff;
         public static List<string> claseTest, claseTraining, claseUniceTest, claseUniceTraining;
         double[,] dateFisierTest;
@@ -137,9 +139,12 @@ namespace CitireMatrici
 
         private void btnKNN_Click(object sender, EventArgs e)
         {
-            distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante, Convert.ToInt32(tbK.Text));
+            k = Convert.ToInt32(tbK.Text);
+            distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante,k);
+            cn.freqClase(distanteSortateCuIndex);
            // cn.confusionMatrices(claseTest,distanteSortateCuIndex);
             metrici = externe.CalculMetrici(cn.confusionMatrices(claseTest, distanteSortateCuIndex));
+            s.WriteOutputData(metrici);
         }
 
         
