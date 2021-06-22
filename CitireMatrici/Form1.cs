@@ -127,14 +127,17 @@ namespace CitireMatrici
             if (rbDisMan.Checked)
             {
                 distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, 1);
+                MessageBox.Show("Distante calculate!");
             }
             if (rbDisMin.Checked)
             {
                 distante = distanta.DistantaMinkowski(ref dateFisierTest, ref dateFisierTraining, Convert.ToInt32(nUdMinkOrder.Value));
+                MessageBox.Show("Distante calculate!");
             }
             if (rbDistCos.Checked)
             {
                 distante = distanta.DistantaCosinus(ref dateFisierTest, ref dateFisierTraining);
+                MessageBox.Show("Distante calculate!");
             }
         }
 
