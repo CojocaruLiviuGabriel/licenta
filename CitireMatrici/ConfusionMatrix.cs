@@ -35,7 +35,7 @@ namespace CitireMatrici
         {
             //array cu matrici de eroare
             ConfusionMatrix[] matriciDeEroare = new ConfusionMatrix[Form1.claseUniceTraining.Count];
-
+            freqClase(distantaSortataCuClasa);
             //Initializare matrici de eroare pentru clase
             for (int i = 0; i < Form1.claseUniceTraining.Count; i++)
             {
@@ -84,11 +84,11 @@ namespace CitireMatrici
             {
                 for(int j = 0; j < distantaSortataCuClasa[i].Count; j++)
                 {
-                    for(int h = 0; h < Form1.k; h++)
-                    {
-                      
-
-                    }
+                    var res = distantaSortataCuClasa.GroupBy(key => key, item => 1)
+                               .Select(group => new {
+                                   group.Key,
+                                   Duplicates = group.Count()
+                               });
                 }
             }
         }
