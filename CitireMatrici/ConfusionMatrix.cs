@@ -16,7 +16,7 @@ namespace CitireMatrici
         private double FalsePositive; //clasa predicitonata DA
         private double TrueNegative; //clasa predicitonata NU
 
-        
+
         public double TP { get => TruePositive; set => TruePositive = value; }
         public double FN { get => FalseNegative; set => FalseNegative = value; }
         public double FP { get => FalsePositive; set => FalsePositive = value; }
@@ -31,7 +31,7 @@ namespace CitireMatrici
         }
 
         public ConfusionMatrix() { }
-        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala,List<List<Tuple<string, double>>> distantaSortataCuClasa)
+        public ConfusionMatrix[] confusionMatrices(List<string> clasaReala, List<List<Tuple<string, double>>> distantaSortataCuClasa)
         {
             //array cu matrici de eroare
             ConfusionMatrix[] matriciDeEroare = new ConfusionMatrix[Form1.claseUniceTraining.Count];
@@ -78,19 +78,21 @@ namespace CitireMatrici
             return matriciDeEroare;
         }
 
-        public void freqClase(List<List<Tuple<string, double>>> distantaSortataCuClasa)
+        public List<List<string>> freqClase(List<List<Tuple<string, double>>> distantaSortataCuClasa)
         {
-            for(int i = 0; i < distantaSortataCuClasa.Count; i++)
+            List<List<string>> t = new List<List<string>>();
+            for (int i = 0; i < distantaSortataCuClasa.Count; i++)
             {
-                for(int j = 0; j < distantaSortataCuClasa[i].Count; j++)
+                t.Add(new List<string>());
+                for (int j = 0; j < distantaSortataCuClasa[i].Count; j++)
                 {
-                    var res = distantaSortataCuClasa.GroupBy(key => key, item => 1)
-                               .Select(group => new {
-                                   group.Key,
-                                   Duplicates = group.Count()
-                               });
+
+                    t[i].Add(distantaSortataCuClasa[i][j].Item1); 
+                       
                 }
             }
+
+            return t;
         }
 
         public bool checkIfAllElementsAreEqual(int[] freqArr)
@@ -113,6 +115,7 @@ namespace CitireMatrici
 
     }
 }
+
 
 
 /*bool prediction = clasaPredictionata[tuples[i][0].Item1] == clasaReala[i];
