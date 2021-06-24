@@ -145,7 +145,6 @@ namespace CitireMatrici
         {
             k = Convert.ToInt32(tbK.Text);
             distanteSortateCuIndex = kNN.sorteazaDistanaDupaIndex(ref distante,k);
-          //  cn.freqClase(distanteSortateCuIndex);
             cn.confusionMatrices(claseTest,distanteSortateCuIndex);
             metrici = externe.CalculMetrici(cn.confusionMatrices(claseTest, distanteSortateCuIndex));
             s.WriteOutputData(metrici);

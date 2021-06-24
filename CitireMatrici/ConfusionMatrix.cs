@@ -16,7 +16,7 @@ namespace CitireMatrici
         private double FalsePositive; //clasa predicitonata DA
         private double TrueNegative; //clasa predicitonata NU
 
-
+        string[] clasa;
         public double TP { get => TruePositive; set => TruePositive = value; }
         public double FN { get => FalseNegative; set => FalseNegative = value; }
         public double FP { get => FalsePositive; set => FalsePositive = value; }
@@ -51,7 +51,7 @@ namespace CitireMatrici
 
                     if (Form1.claseUniceTraining[j].Equals(clasaReala[i]))
                     {
-                        if (clasaReala[i].Equals(distantaSortataCuClasa[i][0].Item1))
+                        if (clasaReala[i].Equals(clasa[i]))
                         {
                             matriciDeEroare[j].TP++;
                         }
@@ -62,7 +62,7 @@ namespace CitireMatrici
                     }
                     else
                     {
-                        if (Form1.claseUniceTraining[j].Equals(distantaSortataCuClasa[i][0].Item1))
+                        if (Form1.claseUniceTraining[j].Equals(clasa[i]))
                         {
                             matriciDeEroare[j].FP++;
                         }
@@ -114,6 +114,25 @@ namespace CitireMatrici
                     {
                         contorClase[i][t[i][j]] = 1;
                     }
+                }
+            }
+
+            /* for(var i = 0; i < contorClase.Count; i++)
+             {
+                 for(var j = 0; j < contorClase[i].Count; j++)
+                 {
+                     int testValue = contorClase[i].
+                 }
+             }*/
+
+
+            clasa = new string[Form1.claseTest.Count];
+            for(var i = 0; i < contorClase.Count; i++)
+            {
+                for(var j = 0; j < contorClase[i].Count; j++)
+                {
+                    var m = contorClase[i].OrderByDescending(x => x.Value).FirstOrDefault().Key;
+                    clasa[i] = m;
                 }
             }
         }

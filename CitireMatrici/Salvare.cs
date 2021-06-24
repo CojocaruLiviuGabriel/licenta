@@ -11,7 +11,7 @@ namespace CitireMatrici
 {
     public class Salvare
     {
-        string filePath = "../../OutputReports/metriciFM_NS1_DC.csv";
+        string filePath = "../../OutputReports/metriciFM_testK_modificat1.csv";
         StringBuilder csv = new StringBuilder();
         string[] headerTabel = { "Clasa", "accuracy", "precision", "recall", "true negative rate" };
         public void WriteOutputData(List<List<double>> metrici)
