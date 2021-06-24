@@ -35,7 +35,8 @@ namespace CitireMatrici
         {
             //array cu matrici de eroare
             ConfusionMatrix[] matriciDeEroare = new ConfusionMatrix[Form1.claseUniceTraining.Count];
-            freqClase(distantaSortataCuClasa);
+
+            freq(freqClase(distantaSortataCuClasa));
             //Initializare matrici de eroare pentru clase
             for (int i = 0; i < Form1.claseUniceTraining.Count; i++)
             {
@@ -87,12 +88,34 @@ namespace CitireMatrici
                 for (int j = 0; j < distantaSortataCuClasa[i].Count; j++)
                 {
 
-                    t[i].Add(distantaSortataCuClasa[i][j].Item1); 
-                       
+                    t[i].Add(distantaSortataCuClasa[i][j].Item1);                       
                 }
             }
 
             return t;
+        }
+
+        public void freq(List<List<string>> t)
+        {
+            string[] cts = new string[t.Count];
+            int[] fcts = new int[t.Count];
+            List<Dictionary<string, int>> contorClase = new List<Dictionary<string, int>>();
+            for (int i = 0; i < t.Count; i++)
+            {
+                contorClase.Add(new Dictionary<string, int>());
+                for (int j = 0; j < t[i].Count; j++)
+                {
+                    if (contorClase[i].ContainsKey(t[i][j]))
+                    {
+                        int temp = contorClase[i][t[i][j]];
+                        contorClase[i][t[i][j]] = ++temp;
+                    }
+                    else
+                    {
+                        contorClase[i][t[i][j]] = 1;
+                    }
+                }
+            }
         }
 
         public bool checkIfAllElementsAreEqual(int[] freqArr)
