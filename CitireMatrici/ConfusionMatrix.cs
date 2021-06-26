@@ -117,15 +117,6 @@ namespace CitireMatrici
                 }
             }
 
-            /* for(var i = 0; i < contorClase.Count; i++)
-             {
-                 for(var j = 0; j < contorClase[i].Count; j++)
-                 {
-                     int testValue = contorClase[i].
-                 }
-             }*/
-
-
             clasa = new string[Form1.claseTest.Count];
             for(var i = 0; i < contorClase.Count; i++)
             {
