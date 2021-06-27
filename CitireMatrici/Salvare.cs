@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CitireMatrici
 {
     public class Salvare
     {
-        string filePath = "../../OutputReports/metriciFMic_NS1_DC_k5.csv";
+        
         StringBuilder csv = new StringBuilder();
         string[] headerTabel = { "Clasa", "accuracy", "precision", "recall", "true negative rate" };
         public void WriteOutputData(List<List<double>> metrici)
         {
+            NumeFisier obj = new NumeFisier();
+            obj.ShowDialog();
+            string filePath = "../../OutputReports/" + obj.textBox1.Text + ".csv";
             int i = 0;
             for (i = 0; i < 1; i++)
             {
