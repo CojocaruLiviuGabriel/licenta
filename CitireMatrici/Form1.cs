@@ -101,8 +101,8 @@ namespace CitireMatrici
                 }
                 if (rbNormCS.Checked)
                 {
-                    normalizare.NormalizareCornellSmart(dateFisierTest);
-                    normalizare.NormalizareCornellSmart(dateFisierTraining);
+                    normalizare.NormalizareLogaritmDublu(dateFisierTest);
+                    normalizare.NormalizareLogaritmDublu(dateFisierTraining);
                 }
                 if (rbNormNom.Checked)
                 {

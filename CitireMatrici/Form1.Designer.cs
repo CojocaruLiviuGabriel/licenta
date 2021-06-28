@@ -192,10 +192,10 @@
             this.rbNormCS.AutoSize = true;
             this.rbNormCS.Location = new System.Drawing.Point(6, 42);
             this.rbNormCS.Name = "rbNormCS";
-            this.rbNormCS.Size = new System.Drawing.Size(148, 17);
+            this.rbNormCS.Size = new System.Drawing.Size(154, 17);
             this.rbNormCS.TabIndex = 13;
             this.rbNormCS.TabStop = true;
-            this.rbNormCS.Text = "Normalizare ConrnellSmart";
+            this.rbNormCS.Text = "Normalizare Logaritm Dublu";
             this.rbNormCS.UseVisualStyleBackColor = true;
             // 
             // groupBox3

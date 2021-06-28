@@ -31,7 +31,7 @@ namespace CitireMatrici
             }
         }
 
-        public void NormalizareCornellSmart(double[,] matrix)
+        public void NormalizareLogaritmDublu(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
