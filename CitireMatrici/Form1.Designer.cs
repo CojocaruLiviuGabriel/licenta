@@ -62,7 +62,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(123, 37);
             this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Iesire";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -72,7 +72,7 @@
             this.lrSfBtn.Name = "lrSfBtn";
             this.lrSfBtn.Size = new System.Drawing.Size(187, 23);
             this.lrSfBtn.TabIndex = 6;
-            this.lrSfBtn.Text = "Load and Read Small Files";
+            this.lrSfBtn.Text = "Fisiere mici";
             this.lrSfBtn.UseVisualStyleBackColor = true;
             this.lrSfBtn.Click += new System.EventHandler(this.lrSfBtn_Click);
             // 
@@ -126,7 +126,7 @@
             this.lrLfBtn.Name = "lrLfBtn";
             this.lrLfBtn.Size = new System.Drawing.Size(187, 23);
             this.lrLfBtn.TabIndex = 7;
-            this.lrLfBtn.Text = "Load and Read Large Files";
+            this.lrLfBtn.Text = "Fisiere mari";
             this.lrLfBtn.UseVisualStyleBackColor = true;
             this.lrLfBtn.Click += new System.EventHandler(this.lrLfBtn_Click);
             // 
